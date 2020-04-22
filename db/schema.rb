@@ -10,9 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_04_22_221908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_sources", force: :cascade do |t|
+    t.string "guid", null: false
+    t.string "name", null: false
+    t.string "region", null: false
+    t.string "state", null: false
+    t.string "twitter"
+    t.text "site"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guid"], name: "index_content_sources_on_guid", unique: true
+    t.index ["name"], name: "index_content_sources_on_name", unique: true
+    t.index ["region"], name: "index_content_sources_on_region"
+    t.index ["state"], name: "index_content_sources_on_state"
+  end
 
 end
