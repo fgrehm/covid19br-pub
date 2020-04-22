@@ -1,0 +1,6 @@
+alias dc="docker-compose"
+alias rake="docker-compose exec app rake"
+alias rails="docker-compose exec app rails"
+alias bundle="docker-compose exec app bundle"
+alias yarn="docker-compose exec app yarn"
+alias dce="docker-compose exec app"
