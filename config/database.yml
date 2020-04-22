@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: database
+  username: root
+  pool: 5
+
+development:
+  <<: *default
+  database: covid19br_info_development
+
+test:
+  <<: *default
+  database: covid19br_info_test
+
+production:
+  url: <%= ENV["DATABASE_URL"] %>

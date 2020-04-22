@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    meta charset="utf-8"
+    meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    title
+      = content_for?(:title) ? "#{content_for(:title)} - " : ""
+      | New Rails App
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+
+  body
+    nav.navbar.navbar-dark.bg-dark.navbar-expand.mb-2
+      .container
+        = link_to "#", class: "navbar-brand" do
+          | New Rails App
+        ul.navbar-nav
+          li.nav-item.active
+            = link_to "Menu Item 1", "#", class: "nav-link text-white"
+          li.nav-item
+            = link_to "Menu Item 2", "#", class: "nav-link text-white"
+    .container
+      - if flash[:notice]
+        .alert.alert-success= flash[:notice]
+      - if flash[:alert]
+        .alert.alert-danger= flash[:alert]
+      = yield
+    hr
+    footer.text-muted.pt-3.pb-3.text-center
+      h5.mb-1 © 2019 Company Name

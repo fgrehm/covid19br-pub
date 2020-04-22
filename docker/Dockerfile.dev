@@ -1,0 +1,11 @@
+FROM ruby:2.6-alpine3.10
+ENV BUNDLE_JOBS 8
+RUN apk add --no-cache \
+            bash \
+            build-base \
+            git \
+            less \
+            nodejs \
+            postgresql-dev \
+            yarn \
+            tzdata
