@@ -1,6 +1,10 @@
 module Ingestion
   class Runner
     PIPELINE = [
+      Actions::NormalizeInput,
+      Actions::CheckForRelevancy,
+      Actions::UpsertContent,
+      Actions::CaptureImage,
     ].freeze
 
     def self.run(input, env: {}, pipeline: PIPELINE)
@@ -12,10 +16,7 @@ module Ingestion
     def self.run_action(action, env)
       action.call(env)
     rescue RuntimeError => e
-      env[:error] = {
-        exception: e,
-        action: action.name
-      }
+      env[:error] = { action: action.name, exception: e }
     end
   end
 end
