@@ -2,7 +2,7 @@ class Content < ApplicationRecord
   attr_readonly :uuid
 
   belongs_to :content_source
-  has_one :content_text
+  has_one :content_text, dependent: :destroy
 
   delegate :full_text, :full_text=, :excerpt, :excerpt=, :full_text_hash,
            to: :content_text
