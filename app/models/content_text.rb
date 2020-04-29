@@ -1,5 +1,5 @@
 class ContentText < ApplicationRecord
-  belongs_to :content
+  belongs_to :content, touch: true
 
   def full_text=(full_text)
     super.tap do
