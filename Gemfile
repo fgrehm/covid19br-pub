@@ -11,7 +11,12 @@ gem "bootsnap", require: false
 gem "pg"
 gem "puma"
 gem "rails", "~> 6.0.0"
+
+gem "aws-sdk-s3"
+gem "cloudinary"
+gem "kaminari"
 gem "simple_form"
+gem "sidekiq"
 gem "slim-rails"
 gem "turbolinks"
 gem "turbolinks_render"
