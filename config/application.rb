@@ -3,7 +3,7 @@ require_relative 'boot'
 require "rails"
 # Pick the frameworks you want:
 require "active_model/railtie"
-require "active_job/railtie"
+# require "active_job/railtie"
 require "active_record/railtie"
 require "active_storage/engine"
 require "action_controller/railtie"
@@ -34,5 +34,7 @@ module Covid19brInfo
     config.generators.system_tests = nil
 
     config.x.cloudinary_enabled = ENV.fetch("CLOUDINARY_URL") { raise "Missing CLOUDINARY_URL" if Rails.env.production? }.present?
+    config.x.sidekiq_user = ENV.fetch("SIDEKIQ_USERNAME") { raise "Missing SIDEKIQ_USERNAME" if Rails.env.production? }.present?
+    config.x.sidekiq_password = ENV.fetch("SIDEKIQ_PASSWORD") { raise "Missing SIDEKIQ_PASSWORD" if Rails.env.production? }.present?
   end
 end
