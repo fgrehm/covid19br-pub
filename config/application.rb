@@ -32,5 +32,7 @@ module Covid19brInfo
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.x.cloudinary_enabled = ENV.fetch("CLOUDINARY_URL") { raise "Missing CLOUDINARY_URL" if Rails.env.production? }.present?
   end
 end
