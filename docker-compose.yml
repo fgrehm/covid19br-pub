@@ -12,11 +12,19 @@ services:
       POSTGRES_PASSWORD:
       POSTGRES_HOST_AUTH_METHOD: trust
 
+  redis:
+    image: 'redis:5'
+    ports:
+      - '6379:6379'
+    volumes:
+      - 'redis-data:/data'
+
   app:
     command: 'bundle exec rails s -b 0.0.0.0'
     working_dir: '/app'
     links:
       - 'db:database'
+      - 'redis:redis'
     image: covid19br_info:dev
     build:
       context: './docker'
@@ -29,6 +37,25 @@ services:
       - 'node_modules-data:/app/node_modules'
     environment:
       WEBPACKER_DEV_SERVER_HOST: 'webpack'
+      REDIS_URL: 'redis://redis/0'
+
+  sidekiq:
+    command: 'bundle exec sidekiq'
+    working_dir: '/app'
+    links:
+      - 'db:database'
+      - 'redis:redis'
+    image: covid19br_info:dev
+    build:
+      context: './docker'
+      dockerfile: 'Dockerfile.dev'
+    volumes:
+      - './:/app'
+      - 'gems-data:/usr/local/bundle'
+      - 'node_modules-data:/app/node_modules'
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: 'webpack'
+      REDIS_URL: 'redis://redis/0'
 
   webpack:
     command: './bin/webpack-dev-server'
@@ -47,6 +74,8 @@ services:
 
 volumes:
   postgres-data:
+    driver: local
+  redis-data:
     driver: local
   gems-data:
     driver: local
