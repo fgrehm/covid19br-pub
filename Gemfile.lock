@@ -56,6 +56,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2)
+    ast (2.4.0)
     aws-eventstream (1.1.0)
     aws-partitions (1.305.0)
     aws-sdk-core (3.94.0)
@@ -76,6 +77,8 @@ GEM
     bindex (0.8.1)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
+    bugsnag (6.13.0)
+      concurrent-ruby (~> 1.0)
     builder (3.2.4)
     byebug (11.1.2)
     cloudinary (1.13.2)
@@ -133,6 +136,8 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    parser (2.7.1.2)
+      ast (~> 2.4.0)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -201,6 +206,8 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.2)
+    scout_apm (2.6.7)
+      parser
     semantic_range (2.3.0)
     sidekiq (6.0.7)
       connection_pool (>= 2.2.2)
@@ -260,6 +267,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk-s3
   bootsnap
+  bugsnag
   byebug
   cloudinary
   kaminari
@@ -269,6 +277,7 @@ DEPENDENCIES
   puma
   rails (~> 6.0.0)
   rspec-rails (>= 4.0.0.beta3)
+  scout_apm
   sidekiq
   simple_form
   slim-rails
