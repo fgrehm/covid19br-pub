@@ -33,8 +33,11 @@ module Covid19brInfo
     # Don't generate system test files.
     config.generators.system_tests = nil
 
+    config.x.s3_input_bucket = ENV.fetch("S3_INPUT_BUCKET") { raise "Missing S3_INPUT_BUCKET" if Rails.env.production? }
     config.x.cloudinary_enabled = ENV.fetch("CLOUDINARY_URL") { raise "Missing CLOUDINARY_URL" if Rails.env.production? }.present?
     config.x.sidekiq_user = ENV.fetch("SIDEKIQ_USERNAME") { raise "Missing SIDEKIQ_USERNAME" if Rails.env.production? }
     config.x.sidekiq_password = ENV.fetch("SIDEKIQ_PASSWORD") { raise "Missing SIDEKIQ_PASSWORD" if Rails.env.production? }
+    config.x.webhook_user = ENV.fetch("WEBHOOK_USERNAME") { raise "Missing WEBHOOK_USERNAME" if Rails.env.production? }
+    config.x.webhook_password = ENV.fetch("WEBHOOK_PASSWORD") { raise "Missing WEBHOOK_PASSWORD" if Rails.env.production? }
   end
 end

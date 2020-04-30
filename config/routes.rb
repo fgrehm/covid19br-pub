@@ -13,5 +13,6 @@ end if Rails.configuration.x.sidekiq_user.present?
 Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
 
+  post "/webhook", to: "webhook#create"
   root to: "home#index"
 end
