@@ -18,6 +18,7 @@ module Ingestion
           end
           normalize_dates(input, :published_at, :found_at, :updated_at)
           normalize_modified_at(input)
+          remove_title_from(input, :full_text, :excerpt)
           rehash_full_text(input)
 
           env[:input] = input.freeze # just so no other action tries to change it
@@ -57,6 +58,15 @@ module Ingestion
           input[:full_text] = "RT @#{user}: #{retweet[:full_text]}"
         end
 
+        def remove_title_from(input, *keys)
+          title = input[:title]
+          return if title.blank?
+
+          keys.each do |key|
+            input[key].gsub!(/^#{title}/, "") if input[key]
+          end
+        end
+
         def rehash_full_text(input)
           input[:full_text_hash] = Digest::SHA1.hexdigest(input[:full_text])
         end
@@ -68,7 +78,8 @@ module Ingestion
             input[key] = input[key].
               gsub(/\r\n/, "\n").
               gsub(/^\s+/, "").
-              gsub(/\s+$/, "")
+              gsub(/\s+$/, "").
+              gsub(/  +/, " ")
           end
         end
 
