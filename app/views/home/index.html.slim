@@ -27,7 +27,13 @@
         p.is-size-7-mobile
           = content.display_text.gsub("\n", "<br>").html_safe
         .is-hidden-tablet
-          = image_tag content.image_url, style: "border: solid 1px #ccc" if content.image_url?
+          = link_to content.url, target: "_blank" do
+            - if content.cloudinary_image_id?
+              = cl_image_tag(content.cloudinary_image_id, format: "png", width: 350, crop: :scale, style: "border: solid 1px #ccc")
+            - elsif content.image_url?
+              = image_tag content.image_url, style: "border: solid 1px #ccc"
+            - elsif content.content_source.logo_url?
+              = image_tag content.content_source.logo_url, style: "border: solid 1px #ccc"
 hr
 - if !@contents.last_page?
   = link_to "VEJA MAIS", root_path(page: params.fetch(:page, 1).to_i + 1), class: "button is-fullwidth is-primary"
