@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby ">= 2.6.0"
+ruby "~> 2.6.6"
 
 gem "bootsnap", require: false
 gem "pg"
@@ -27,6 +27,10 @@ gem "webpacker"
 group :development, :test do
   gem "byebug"
   gem "rspec-rails", ">= 4.0.0.beta3"
+end
+
+group :test do
+  gem "webmock", require: false
 end
 
 group :development do
