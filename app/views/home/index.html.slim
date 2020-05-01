@@ -4,11 +4,11 @@
       p.image.is-128x128
         = link_to content.url, target: "_blank" do
           - if content.cloudinary_image_id?
-            = cl_image_tag(content.cloudinary_image_id, format: "png", width: 130, crop: :scale)
+            = cl_image_tag(content.cloudinary_image_id, format: "png", width: 350, crop: :scale, style: "border: solid 1px #ccc")
           - elsif content.image_url?
-            = image_tag content.image_url
+            = image_tag content.image_url, style: "border: solid 1px #ccc"
           - elsif content.content_source.logo_url?
-            = image_tag content.content_source.logo_url
+            = image_tag content.content_source.logo_url, style: "border: solid 1px #ccc"
           small
             b= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
     .media-content
