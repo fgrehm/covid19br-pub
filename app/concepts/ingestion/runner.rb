@@ -1,7 +1,7 @@
 module Ingestion
   class Runner
     PIPELINE = [
-      Actions::ArchiveRawInput,
+      Actions::ProcessInput,
       Actions::NormalizeInput,
       Actions::CheckForRelevancy,
       Actions::UpsertContent,

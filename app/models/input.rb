@@ -15,7 +15,10 @@ class Input < ApplicationRecord
     self.find_or_initialize_by(key: key, found_at: found_at).tap do |input|
       input.archive!(raw_input) if !input.file.attached?
     end
-    # attach file, use proper key (found at + input key)
+  end
+
+  def data
+    JSON.parse(ActiveSupport::Gzip.decompress(self.file.download))
   end
 
   def archive!(raw_input)
@@ -38,6 +41,4 @@ class Input < ApplicationRecord
 
     self.file.attach(blob)
   end
-
-  # TO Read: JSON.parse(ActiveSupport::Gzip.decompress(Input.last.file.download))
 end
