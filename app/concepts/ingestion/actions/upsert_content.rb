@@ -4,8 +4,6 @@ module Ingestion
       def self.call(env)
         return unless env[:relevant]
 
-        # # Actions::CaptureImage, Pode ir pra dentro do upsert
-        #
         params = env.fetch(:input).slice(
           :source_guid,
           :content_type,
@@ -31,6 +29,9 @@ module Ingestion
           url_hash: url_hash
         )
         content.update!(params)
+
+        input_model = env[:input_model].presence
+        input_model.update!(content: content) if input_model
 
         env[:content] = content
       end
