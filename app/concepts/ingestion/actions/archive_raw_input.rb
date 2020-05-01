@@ -12,7 +12,7 @@ module Ingestion
           end
 
           env[:input_model] = ::Input.archive!(raw_input)
-          # delete_input_from_s3(s3_key) if s3_key
+          delete_from_s3(s3_key) if s3_key
 
           # "Consumes" the information, in theory no other actions should use this info
           env.delete(:s3_key)
