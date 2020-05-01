@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_213739) do
+ActiveRecord::Schema.define(version: 2020_04_30_225140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,20 @@ ActiveRecord::Schema.define(version: 2020_04_28_213739) do
     t.index ["uuid"], name: "index_contents_on_uuid", unique: true
   end
 
+  create_table "inputs", force: :cascade do |t|
+    t.string "uuid", null: false
+    t.string "key", null: false
+    t.datetime "found_at", null: false
+    t.bigint "content_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["content_id"], name: "index_inputs_on_content_id"
+    t.index ["key", "found_at"], name: "index_inputs_on_key_and_found_at", unique: true
+    t.index ["uuid"], name: "index_inputs_on_uuid", unique: true
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "content_texts", "contents"
   add_foreign_key "contents", "content_sources"
+  add_foreign_key "inputs", "contents"
 end

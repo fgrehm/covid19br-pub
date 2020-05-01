@@ -1,10 +1,12 @@
 module Ingestion
   class Runner
     PIPELINE = [
+      Actions::ArchiveRawInput,
       Actions::NormalizeInput,
       Actions::CheckForRelevancy,
       Actions::UpsertContent,
       Actions::CaptureImage,
+      Actions::ArchiveContent,
     ].freeze
 
     def self.run(input, env: {}, pipeline: PIPELINE)

@@ -3,6 +3,7 @@ class Content < ApplicationRecord
 
   belongs_to :content_source
   has_one :content_text, dependent: :destroy
+  has_many_attached :versions
 
   delegate :full_text, :full_text=, :excerpt, :excerpt=, :full_text_hash,
            to: :content_text
