@@ -1,0 +1,28 @@
+guid,name,source_scope,source_type,region,state,twitter,site,logo_url
+br-gov-ac,Governo Estadual do Acre,state,state_government,Norte,AC,GovernoAcre,https://agencia.ac.gov.br/categoria/noticias/,https://agencia.ac.gov.br/wp-content/themes/agenciaac-wp/images/footer-logo.png
+br-gov-al,Governo Estadual de Alagoas,state,state_government,Nordeste,AL,GovernoAlagoas,http://agenciaalagoas.al.gov.br/,https://casal.sfo2.digitaloceanspaces.com/2018/07/logoalagoas-1.png
+br-gov-am,Governo Estadual do Amazonas,state,state_government,Norte,AM,AmazonasGoverno,http://www.amazonas.am.gov.br,http://www.amazonas.am.gov.br/content/uploads/2019/03/HORITZONTAL-menor4.png
+br-gov-ap,Governo Estadual do Amapá,state,state_government,Norte,AP,governodoamapa,https://www.portal.ap.gov.br/,https://www.portal.ap.gov.br/img/logo-site.jpg
+br-gov-ba,Governo Estadual da Bahia,state,state_government,Nordeste,BA,governodabahia,http://www.ba.gov.br,http://www.ba.gov.br/themes/secom/logo.jpg
+br-gov-ce,Governo Estadual do Ceará,state,state_government,Nordeste,CE,governodoceara,https://www.ceara.gov.br,https://www.ceara.gov.br/wp-content/uploads/2017/08/logo-ceara.png
+br-gov-df,Governo Estadual do Distrito Federal,state,state_government,Centro-Oeste,DF,Gov_DF,https://www.agenciabrasilia.df.gov.br/noticias/,http://df.gov.br/wp-conteudo/themes/templategdf/img/marca-do-governo/Marca%20Horizontal.png
+br-gov-es,Governo Estadual do Espírito Santo,state,state_government,Sudeste,ES,GovernoES,https://www.es.gov.br/Noticias,https://identidadevisual.es.gov.br/Media/identidadevisual/Imagens/Brasao/center/Brasao_Governo_240.png
+br-gov-go,Governo Estadual de Goiás,state,state_government,Centro-Oeste,GO,governo_go,https://www.goias.gov.br/index.php/noticias,https://www.comunicacao.go.gov.br/images/logo-governo-goias.jpg
+br-gov-ma,Governo Estadual do Maranhão,state,state_government,Nordeste,MA,GovernoMA,https://www.ma.gov.br/agenciadenoticias/?cat=162,https://www3.ma.gov.br/wp-content/themes/magov-theme/img/maranhao.png
+br-gov-mg,Governo Estadual de Minas Gerais,state,state_government,Sudeste,MG,governomg,http://www.agenciaminas.mg.gov.br/noticias,http://www.agenciaminas.mg.gov.br/ckeditor_assets/attachments/1219/logo_minasgeraismarca-1.jpg
+br-gov-ms,Governo Estadual de Mato Grosso do Sul,state,state_government,Centro-Oeste,MS,GovernoMS,http://www.ms.gov.br/listar-noticias/,http://www.templates.sgi.ms.gov.br/cabecalho-institucional/imagens/logo-governo-ms-topo.png
+br-gov-mt,Governo Estadual de Mato Grosso,state,state_government,Centro-Oeste,MT,govmatogrosso,http://www.mt.gov.br/noticias,http://www.mti.mt.gov.br/documents/2458894/2459003/Logo+Governo+de+MT+2019
+br-gov-pa,Governo Estadual do Pará,state,state_government,Norte,PA,governopara,https://agenciapara.com.br/noticias.asp,http://www.susipe.pa.gov.br/sites/default/files/logo%20governo%20horizontal.png
+br-gov-pb,Governo Estadual da Paraíba,state,state_government,Nordeste,PB,govparaiba,https://paraiba.pb.gov.br/noticias,https://paraiba.pb.gov.br/++theme++paraiba2019/images/LogoGoverno.svg
+br-gov-pe,Governo Estadual de Pernambuco,state,state_government,Nordeste,PE,governope,http://www.pe.gov.br/blog,http://www.pe.gov.br/_resources/media/img/default/logo.png?v=2
+br-gov-pi,Governo Estadual do Piauí,state,state_government,Nordeste,PI,GovernodoPi,https://www.pi.gov.br/noticias,https://www.pi.gov.br/wp-content/themes/governodopiaui/images/logo-governo-do-piaui.svg
+br-gov-pr,Governo Estadual do Paraná,state,state_government,Sul,PR,governoparana,http://www.aen.pr.gov.br/noticias.html,http://www.pr.gov.br/logos/governo2019_400x173px.png
+br-gov-rj,Governo Estadual do Rio de Janeiro,state,state_government,Sudeste,RJ,GovRJ,http://rj.gov.br,https://coronavirus.rj.gov.br/wp-content/uploads/2020/03/00_Home_V8_29.jpg
+br-gov-rn,Governo Estadual do Rio Grande do Norte,state,state_government,Nordeste,RN,governodorn,http://www.rn.gov.br/Conteudo.asp?TRAN=PASTAC&TARG=660&ACT=&PAGE=0&PARM=&LBL=RN+Not%EDcias,https://assets.blogdobg.com.br/uploads/2019/08/rn.png
+br-gov-ro,Governo Estadual de Rondônia,state,state_government,Norte,RO,governoro,http://www.rondonia.ro.gov.br/portal/noticias/,http://img.sistemas.ro.gov.br/portal/brasao-portal-lg.png
+br-gov-rr,Governo Estadual de Roraima,state,state_government,Norte,RR,govroraima,http://www.rr.gov.br/index.php/agencia-roraima/agencia-de-noticias,http://www.rr.gov.br/images/logovnova.png
+br-gov-rs,Governo Estadual do Rio Grande do Sul,state,state_government,Sul,RS,governo_rs,https://estado.rs.gov.br,https://estado.rs.gov.br/themes/portalrs/images/logos/brasao_RS.png
+br-gov-sc,Governo Estadual de Santa Catarina,state,state_government,Sul,SC,GovSC,http://www.sc.gov.br/noticias/temas,http://www.sc.gov.br/images/logo/logo-sc-preto.png
+br-gov-se,Governo Estadual de Sergipe,state,state_government,Nordeste,SE,governosergipe,https://www.se.gov.br/noticias,https://www.se.gov.br/frontend/image/logo1.png
+br-gov-sp,Governo Estadual de São Paulo,state,state_government,Sudeste,SP,governosp,https://www.saopaulo.sp.gov.br,https://saopaulo.sp.gov.br/barra-govsp/img/logo-rodape.png
+br-gov-to,Governo Estadual de Tocantins,state,state_government,Norte,TO,governoTO,https://portal.to.gov.br/,https://barra.to.gov.br/imagens/logo.svg?1551126478
