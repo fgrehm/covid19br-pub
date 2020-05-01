@@ -2,14 +2,15 @@
   article.media
     figure.media-left.is-hidden-mobile
       p.image.is-128x128
-        - if content.cloudinary_image_id?
-          = cl_image_tag(content.cloudinary_image_id, format: "png", width: 130, crop: :scale)
-        - elsif content.image_url?
-          = image_tag content.image_url
-        - elsif content.content_source.logo_url?
-          = image_tag content.content_source.logo_url
-        small
-          b= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
+        = link_to content.url, target: "_blank" do
+          - if content.cloudinary_image_id?
+            = cl_image_tag(content.cloudinary_image_id, format: "png", width: 130, crop: :scale)
+          - elsif content.image_url?
+            = image_tag content.image_url
+          - elsif content.content_source.logo_url?
+            = image_tag content.content_source.logo_url
+          small
+            b= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
     .media-content
       .content
         h5[style="margin-bottom: 0.5rem"]
