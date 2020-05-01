@@ -26,7 +26,7 @@ module Ingestion
         end
 
         def delete_from_s3(key)
-          s3.destroy_object(bucket: input_bucket, key: key)
+          s3.delete_object(bucket: input_bucket, key: key)
         end
 
         def s3
