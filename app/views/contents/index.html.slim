@@ -1,0 +1,13 @@
+.columns.is-multiline
+  - @contents.each do |content|
+    .column.is-one-quarter-fullhd.is-one-third-desktop.is-half-tablet
+        = render "cards/#{content.content_type}", content: content, data: { uuid: content.uuid }
+
+hr
+- if !@contents.last_page?
+  - # HACK: This is terrible, but was in a rush
+  - next_page = params.fetch(:page, 1).to_i + 1
+  - url = "/"
+  - url << params[:state_slug] if params[:state_slug].present?
+  - url << "?page=#{next_page}"
+  = link_to "VEJA MAIS", url, class: "button is-fullwidth is-primary"
