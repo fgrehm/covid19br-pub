@@ -7,7 +7,7 @@
             figure.image.is-4by3
               = link_to content.url, target: "_blank" do
                 - if content.cloudinary_image_id?
-                  = cl_image_tag(content.cloudinary_image_id, format: "png", width: 350, crop: :scale)
+                  = cl_image_tag(content.cloudinary_image_id, format: "jpg", width: 800, crop: :lpad, background: "auto", aspect_ratio: "4:3")
                 - elsif content.image_url?
                   = image_tag content.image_url
         .card-content[style="margin-bottom: 1rem"]
