@@ -23,9 +23,8 @@
           - elsif content.image_url?
             = image_tag content.image_url
   footer.card-footer
-    - if content.content_type == "tweet"
-      p.card-footer-item
-        = link_to "Ver no Twitter", content.url, target: "_blank"
-      p.card-footer-item.has-text-right
-        time
-          small= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
+    p.card-footer-item
+      = link_to "Ver no Twitter", content.url, target: "_blank"
+    p.card-footer-item.has-text-right
+      time
+        small= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
