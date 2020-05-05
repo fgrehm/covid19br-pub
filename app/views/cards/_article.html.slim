@@ -1,0 +1,21 @@
+.card.card-article[data=data]
+  .card-content[style="margin-bottom: 1rem"]
+    .media
+      .media-content
+        p.title.is-5
+          = link_to content.title, content.url, target: "_blank"
+        p.subtitle.is-6
+          strong= content.content_source.name
+          br
+          small
+            time= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
+    .content
+      = content.display_text.gsub("\n", "<br>").html_safe
+  - if content.image_url?
+    .card-image
+      figure.image.is-4by3
+        = link_to content.url, target: "_blank" do
+          - if content.cloudinary_image_id?
+            = cl_image_tag(content.cloudinary_image_id, format: "jpg", width: 800, crop: :lpad, background: "auto", aspect_ratio: "4:3")
+          - elsif content.image_url?
+            = image_tag content.image_url
