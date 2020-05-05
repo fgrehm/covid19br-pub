@@ -5,7 +5,7 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1"
     title
       = content_for?(:title) ? "#{content_for(:title)} - " : ""
-      | Covid19BR.info
+      | Covid19BR.pub
     = csrf_meta_tags
     = csp_meta_tag
 
@@ -16,7 +16,7 @@ html
     nav.navbar.is-primary.is-fixed-top
       .container
         .navbar-brand
-          = link_to "Monitor da COVID-19 no Brasil", "/", class: "navbar-item"
+          = link_to "COVID19BR.pub", "/", class: "navbar-item"
     section.section[style="padding: 1rem"]
       .container
         = yield

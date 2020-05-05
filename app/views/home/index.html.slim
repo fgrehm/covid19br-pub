@@ -1,39 +1,32 @@
-- @contents.each do |content|
-  article.media
-    figure.media-left.is-hidden-mobile
-      p.image.is-128x128
-        = link_to content.url, target: "_blank" do
-          - if content.cloudinary_image_id?
-            = cl_image_tag(content.cloudinary_image_id, format: "png", width: 350, crop: :scale, style: "border: solid 1px #ccc")
-          - elsif content.image_url?
-            = image_tag content.image_url, style: "border: solid 1px #ccc"
-          - elsif content.content_source.logo_url?
-            = image_tag content.content_source.logo_url, style: "border: solid 1px #ccc"
-          small
-            b= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
-    .media-content
-      .content
-        h5[style="margin-bottom: 0.5rem"]
-          / strong=> content.id
-          strong= content.content_source.name
-          span.is-hidden-tablet.has-text-grey.is-size-7
-            br
-            b= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
-        h6[style="margin-bottom: 0.5rem"]
-          - if content.content_type == "tweet"
-            = link_to "Visualizar tweet", content.url, target: "_blank"
-          - else
-            = link_to content.title, content.url, target: "_blank"
-        p.is-size-7-mobile
-          = content.display_text.gsub("\n", "<br>").html_safe
-        .is-hidden-tablet
-          = link_to content.url, target: "_blank" do
-            - if content.cloudinary_image_id?
-              = cl_image_tag(content.cloudinary_image_id, format: "png", width: 350, crop: :scale, style: "border: solid 1px #ccc")
-            - elsif content.image_url?
-              = image_tag content.image_url, style: "border: solid 1px #ccc"
-            - elsif content.content_source.logo_url?
-              = image_tag content.content_source.logo_url, style: "border: solid 1px #ccc"
+.columns.is-multiline
+  - @contents.each do |content|
+    .column.is-one-quarter-widescreen.is-one-third-desktop.is-half-tablet
+      .card[data-uuid=content.uuid]
+        - if content.image_url?
+          .card-image
+            figure.image.is-4by3
+              = link_to content.url, target: "_blank" do
+                - if content.cloudinary_image_id?
+                  = cl_image_tag(content.cloudinary_image_id, format: "png", width: 350, crop: :scale)
+                - elsif content.image_url?
+                  = image_tag content.image_url
+        .card-content[style="margin-bottom: 1rem"]
+          .media
+            - if content.content_type == "tweet" && content.content_source.logo_url?
+              .media-left
+                figure.image.is-48x48
+                  = image_tag content.content_source.logo_url
+            .media-content
+              p.title.is-5
+                - if content.content_type != "tweet"
+                  = link_to content.title, content.url, target: "_blank"
+              p.subtitle.is-6
+                strong= content.content_source.name
+                br
+                small
+                  time= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
+          .content
+            = content.display_text.gsub("\n", "<br>").html_safe
 hr
 - if !@contents.last_page?
   = link_to "VEJA MAIS", root_path(page: params.fetch(:page, 1).to_i + 1), class: "button is-fullwidth is-primary"
