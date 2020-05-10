@@ -30,7 +30,7 @@ function initTwitter() {
 }
 
 document.addEventListener("turbolinks:load", function() {
-  initTwitter().ready(renderTweets);
+  initTwitter();//.ready(renderTweets);
 
   $(document).on("click", "#see-more-contents-btn", function(e) {
     e.preventDefault();
@@ -40,7 +40,8 @@ document.addEventListener("turbolinks:load", function() {
       const $page = $(resp)
       $(".contents").append($page.find(".contents").children());
       $(".see-more").replaceWith($page.find(".see-more"));
-      renderTweets();
+      twttr.widgets.load();
+      // renderTweets();
     });
   });
 });

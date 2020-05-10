@@ -212,6 +212,7 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.2)
+    ruby-oembed (0.13.0)
     safe_yaml (1.0.5)
     scout_apm (2.6.7)
       parser
@@ -288,6 +289,7 @@ DEPENDENCIES
   puma
   rails (~> 6.0.0)
   rspec-rails (>= 4.0.0.beta3)
+  ruby-oembed
   scout_apm
   sidekiq
   simple_form
