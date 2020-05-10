@@ -1,30 +1,33 @@
-.card.card-tweet[data=data]
-  .card-content
-    .media
-      - if content.content_type == "tweet" && content.content_source.logo_url?
-        .media-left
-          figure.image.is-48x48
-            = image_tag content.content_source.logo_url
-      .media-content
-        p.title.is-6
-          strong
-            = link_to content.content_source.name, "https://twitter.com/#{content.content_source.twitter}"
-        p.subtitle.is-6
-          small
-            = link_to "@#{content.content_source.twitter}", "https://twitter.com/#{content.content_source.twitter}"
-    .content
-      = content.display_text.gsub("\n", "<br>").html_safe
-  - if content.image_url?
-    .card-image
-      figure.image.is-4by3
-        = link_to content.url, target: "_blank" do
-          - if content.cloudinary_image_id?
-            = cl_image_tag(content.cloudinary_image_id, format: "jpg", transformation: "main_thumb")
-          - elsif content.image_url?
-            = image_tag content.image_url
-  footer.card-footer
-    p.card-footer-item
-      = link_to "Ver no Twitter", content.url, target: "_blank"
-    p.card-footer-item.has-text-right
-      time
-        small= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
+- tweet_id = content.url.gsub(/.*\/([^\/]+)$/, "\\1")
+- new_data = data.merge("tweet-id" => tweet_id, conversation: "none", lang: "pt", dnt: "true")
+.card.card-tweet[data=new_data]
+  .tweet-wrapper
+    .card-content
+      .media
+        - if content.content_type == "tweet" && content.content_source.logo_url?
+          .media-left
+            figure.image.is-48x48
+              = image_tag content.content_source.logo_url
+        .media-content
+          p.title.is-6
+            strong
+              = link_to content.content_source.name, "https://twitter.com/#{content.content_source.twitter}"
+          p.subtitle.is-6
+            small
+              = link_to "@#{content.content_source.twitter}", "https://twitter.com/#{content.content_source.twitter}"
+      .content
+        = content.display_text.gsub("\n", "<br>").html_safe
+    - if content.image_url?
+      .card-image
+        figure.image.is-4by3
+          = link_to content.url, target: "_blank" do
+            - if content.cloudinary_image_id?
+              = cl_image_tag(content.cloudinary_image_id, format: "jpg", transformation: "main_thumb")
+            - elsif content.image_url?
+              = image_tag content.image_url
+    footer.card-footer
+      p.card-footer-item
+        = link_to "Ver no Twitter", content.url, target: "_blank"
+      p.card-footer-item.has-text-right
+        time
+          small= l(content.published_at.in_time_zone("America/Sao_Paulo"), format: "%d/%m/%Y %H:%M")
