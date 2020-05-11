@@ -25,7 +25,7 @@ services:
     links:
       - 'db:database'
       - 'redis:redis'
-    image: covid19br_info:dev
+    image: covid19br_pub:dev
     build:
       context: './docker'
       dockerfile: 'Dockerfile.dev'
@@ -45,7 +45,7 @@ services:
     links:
       - 'db:database'
       - 'redis:redis'
-    image: covid19br_info:dev
+    image: covid19br_pub:dev
     build:
       context: './docker'
       dockerfile: 'Dockerfile.dev'
@@ -62,7 +62,7 @@ services:
     working_dir: '/app'
     links:
       - 'db:database'
-    image: covid19br_info:dev
+    image: covid19br_pub:dev
     ports:
       - '3035:3035'
     volumes:
