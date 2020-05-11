@@ -15,7 +15,8 @@ module Ingestion
           :url_hash,
           :url,
           :excerpt,
-          :full_text
+          :full_text,
+          :extra_data
         )
 
         params[:display_text] = params[:excerpt].truncate(1_000) if params[:excerpt]

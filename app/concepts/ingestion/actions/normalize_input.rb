@@ -56,6 +56,7 @@ module Ingestion
           retweet = tweet[:retweeted_status]
           user = retweet[:user][:screen_name]
           input[:full_text] = "RT @#{user}: #{retweet[:full_text]}"
+          input[:extra_data] = { retweet: true }
         end
 
         def remove_title_from(input, *keys)
