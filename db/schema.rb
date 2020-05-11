@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_01_224941) do
+ActiveRecord::Schema.define(version: 2020_05_11_012600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 2020_05_01_224941) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "cloudinary_image_id"
+    t.jsonb "extra_data", default: {}, null: false
     t.index ["content_source_id"], name: "index_contents_on_content_source_id"
     t.index ["content_type"], name: "index_contents_on_content_type"
     t.index ["found_at"], name: "index_contents_on_found_at"
