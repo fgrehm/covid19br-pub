@@ -30,7 +30,11 @@ function initTwitter() {
 }
 
 document.addEventListener("turbolinks:load", function() {
-  initTwitter();//.ready(renderTweets);
+  if (!window.twttr) {
+    initTwitter();
+  } else {
+    twttr.widgets.load();
+  }
 
   $(document).on("click", "#see-more-contents-btn", function(e) {
     e.preventDefault();
@@ -41,28 +45,9 @@ document.addEventListener("turbolinks:load", function() {
       $(".contents").append($page.find(".contents").children());
       $(".see-more").replaceWith($page.find(".see-more"));
       twttr.widgets.load();
-      // renderTweets();
     });
   });
 });
-
-function renderTweets() {
-  $("[data-tweet-id]").each(function() {
-    const $widget = $(this).find("twitter-widget");
-    if ($widget.length > 0) return;
-
-    twttr.widgets.createTweet(
-      this.dataset.tweetId,
-      this
-    ).then((e) => {
-      if (e) {
-        $(e).siblings(".tweet-wrapper").remove();
-      } else {
-        // alert(`Esbarrou num tweet removido!`);
-      }
-    });
-  });
-}
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
