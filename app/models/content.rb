@@ -52,6 +52,6 @@ class Content < ApplicationRecord
   }.freeze
 
   def self.by_state(state_slug)
-    where(content_source: ContentSource.find_by(state: STATE_SLUGS[state_slug]))
+    where(content_source: ContentSource.where(state: STATE_SLUGS[state_slug]))
   end
 end
