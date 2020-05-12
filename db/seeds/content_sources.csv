@@ -26,3 +26,15 @@ br-gov-sc,Governo Estadual de Santa Catarina,state,state_government,Sul,SC,GovSC
 br-gov-se,Governo Estadual de Sergipe,state,state_government,Nordeste,SE,governosergipe,https://www.se.gov.br/noticias,https://www.se.gov.br/frontend/image/logo1.png
 br-gov-sp,Governo Estadual de São Paulo,state,state_government,Sudeste,SP,governosp,https://www.saopaulo.sp.gov.br,https://saopaulo.sp.gov.br/barra-govsp/img/logo-rodape.png
 br-gov-to,Governo Estadual de Tocantins,state,state_government,Norte,TO,governoTO,https://portal.to.gov.br/,https://barra.to.gov.br/imagens/logo.svg?1551126478
+br-ses-al,Secretaria de Estado da Saúde de Alagoas,state,state_health_agency,Nordeste,AL,saudealagoas,http://www.saude.al.gov.br/,
+br-ses-ba,Secretaria de Estado da Saúde da Bahia,state,state_health_agency,Nordeste,BA,saudegovba,http://www.saude.ba.gov.br/,
+br-ses-ce,Secretaria de Estado da Saúde do Ceará,state,state_health_agency,Nordeste,CE,saudeceara,https://www.saude.ce.gov.br/,
+br-ses-go,Secretaria de Estado da Saúde de Goiás,state,state_health_agency,Centro-Oeste,GO,saudegoias,https://www.saude.go.gov.br/,
+br-ses-pa,Secretaria de Estado da Saúde do Pará,state,state_health_agency,Norte,PA,sespapara,http://www.saude.pa.gov.br/,
+br-ses-pr,Secretaria de Estado da Saúde do Paraná,state,state_health_agency,Sul,PR,saudepr,http://www.saude.pr.gov.br/,
+br-ses-pi,Secretaria de Estado da Saúde do Piauí,state,state_health_agency,Nordeste,PI,saudegovpi,http://www.saude.pi.gov.br/,
+br-ses-rn,Secretaria de Estado da Saúde do Rio Grande do Norte,state,state_health_agency,Nordeste,RN,sesaprn,http://www.saude.rn.gov.br/,
+br-ses-rs,Secretaria de Estado da Saúde do Rio Grande do Sul,state,state_health_agency,Sul,RS,ses_rs,https://saude.rs.gov.br/inicial,
+br-ses-rj,Secretaria de Estado da Saúde do Rio de Janeiro,state,state_health_agency,Sul,RS,SaudeGovRJ,https://www.saude.rj.gov.br/,
+br-ses-se,Secretaria de Estado da Saúde de Sergipe,state,state_health_agency,Nordeste,SE,saude_sergipe,https://www.saude.se.gov.br/,
+br-ses-to,Secretaria de Estado da Saúde de Tocantins,state,state_health_agency,Norte,TO,saudetocantins,https://saude.to.gov.br/,
