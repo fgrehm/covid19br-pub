@@ -16,7 +16,7 @@ class Content < ApplicationRecord
   end
 
   def requires_reindexing?
-    changed? || content_text.changed?
+    previous_changes.any? || content_text.previous_changes.any?
   end
 
   def display_text=(display_text)
