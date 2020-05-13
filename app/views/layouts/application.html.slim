@@ -17,12 +17,12 @@ html
     nav.navbar.is-info.is-fixed-top[role="navigation" aria-label="dropdown navigation"]
       .container
         .navbar-brand
-          = link_to "Monitor da COVID-19 no Brasil", "/", class: "navbar-item"
-          a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+          = link_to "Monitor da COVID-19 no Brasil", "/", class: "navbar-item", data: { turbolinks: false }
+          a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="menu"
             span aria-hidden="true"
             span aria-hidden="true"
             span aria-hidden="true"
-        #navbarBasicExample.navbar-menu
+        #menu.navbar-menu
           .navbar-end
             = link_to "Publicações por estado", state_selection_path, class: "navbar-item"
             a.navbar-item[href="#"] Estatísticas
