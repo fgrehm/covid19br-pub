@@ -3,21 +3,44 @@
   - content_for :title, params[:state_slug].titleize
 - else
   - content_for :title, "Todas as Publicações"
-div
-  .contents
-    .columns.is-multiline
-      .column
-        .columns.is-multiline
-          - @contents.each do |content|
-            .column.is-one-quarter-fullhd.is-one-third-desktop.is-half-tablet
-              = render "cards/#{content.content_type}", content: content, data: { uuid: content.uuid }
 
-  - if params[:page].to_i < 5
-    div.see-more
-      hr
-      - if !@contents.last_page?
-        - # HACK: This is terrible, but was in a rush
-        - next_page = params.fetch(:page, 1).to_i + 1
-        - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug], page: next_page) : "/?page=#{next_page}"
-        button#see-more-contents-btn.button.is-fullwidth.is-primary[data-url=url]
-          | VEJA MAIS
+- unless request.xhr?
+  - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug]) : "/"
+  form[method="get" action=url]
+    .field.has-addons
+      .control.is-expanded
+        input.input[type="text" name="q" value=params[:q]]
+      .control
+        input.button.is-info[type="submit" value="Pesquisar"]
+    - if @contents.any?
+      p.has-text-grey.has-text-right
+        small.is-size-7
+          = "#{@contents.total_count} publicações encontradas"
+          - if params[:q].present?
+            = " para a busca '#{params[:q]}'"
+          = " (#{@contents.tweets_count} tweets, #{@contents.articles_count} artigos)"
+  br
+
+- if @contents.any?
+  div
+    .contents
+      .columns.is-multiline
+        .column
+          .columns.is-multiline
+            - @contents.each do |content|
+              .column.is-one-quarter-fullhd.is-one-third-desktop.is-half-tablet
+                = render "cards/#{content.content_type}", content: content, data: { uuid: content.uuid }
+
+    - if params[:page].to_i < 5
+      div.see-more
+        hr
+        - if !@contents.last_page?
+          - # HACK: This is terrible, but was in a rush
+          - next_page = params.fetch(:page, 1).to_i + 1
+          - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug], page: next_page) : "/?page=#{next_page}"
+          - url << "&q=#{params[:q]}" if params[:q].present?
+          button#see-more-contents-btn.button.is-fullwidth.is-primary[data-url=url]
+            | VEJA MAIS
+- else
+  .notification.is-warning
+    p Nenhuma publicação encontrada

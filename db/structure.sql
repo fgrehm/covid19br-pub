@@ -267,7 +267,9 @@ CREATE TABLE public.search_documents (
     excerpt text,
     full_text text NOT NULL,
     published_at timestamp without time zone NOT NULL,
-    searchable tsvector GENERATED ALWAYS AS (((to_tsvector('portuguese'::regconfig, (COALESCE(title, ''::character varying))::text) || to_tsvector('portuguese'::regconfig, COALESCE(excerpt, ''::text))) || to_tsvector('portuguese'::regconfig, COALESCE(full_text, ''::text)))) STORED
+    searchable tsvector GENERATED ALWAYS AS (((to_tsvector('portuguese'::regconfig, (COALESCE(title, ''::character varying))::text) || to_tsvector('portuguese'::regconfig, COALESCE(excerpt, ''::text))) || to_tsvector('portuguese'::regconfig, COALESCE(full_text, ''::text)))) STORED,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
 );
 
 
@@ -634,6 +636,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200430225140'),
 ('20200501224941'),
 ('20200511012600'),
-('20200513181835');
+('20200513181835'),
+('20200513202109');
 
 
