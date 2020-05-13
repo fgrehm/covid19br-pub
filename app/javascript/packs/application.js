@@ -10,6 +10,10 @@ require("jquery");
 
 import "../styles/application";
 
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
 function initTwitter() {
   return window.twttr = (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
@@ -29,22 +33,32 @@ function initTwitter() {
   }(document, "script", "twitter-wjs"));
 }
 
-document.addEventListener("turbolinks:load", function() {
+document.addEventListener("turbolinks:load", function(event) {
   if (!window.twttr) {
     initTwitter();
   } else {
     twttr.widgets.load();
   }
 
+  gtag('config', 'UA-162234683-2', { anonymize_ip: true, page_location: event.data.url })
+
   $(document).on("click", "#see-more-contents-btn", function(e) {
     e.preventDefault();
     const $button = $(e.currentTarget);
-    $button.addClass("is-secondary").removeClass("is-primary");
+    $button.addClass("is-loading").
+            attr("disabled", true);
     $.get($button.data("url"), function(resp) {
       const $page = $(resp)
       $(".contents").append($page.find(".contents").children());
       $(".see-more").replaceWith($page.find(".see-more"));
       twttr.widgets.load();
+    });
+  });
+
+  $(document).ready(function() {
+    $(".navbar-burger").click(function() {
+      $(".navbar-burger").toggleClass("is-active");
+      $(".navbar-menu").toggleClass("is-active");
     });
   });
 });

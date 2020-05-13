@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq"
 
   post "/webhook", to: "webhook#create"
-  get "/:state_slug", to: "contents#index"
+  get "/publicacoes/selecionar-estado", to: "contents#state_selection", as: :state_selection
+  get "/publicacoes/:state_slug", to: "contents#index", as: :contents_by_state
+  get "/fontes", to: "content_sources#index"
   root to: "contents#index"
 end

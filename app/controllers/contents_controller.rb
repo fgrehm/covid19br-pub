@@ -6,4 +6,8 @@ class ContentsController < ApplicationController
 
     render :index, layout: false if request.xhr?
   end
+
+  def state_selection
+    @states = Content::STATE_SLUGS.keys.map { |slug| { name: slug.titleize, slug: slug } }
+  end
 end

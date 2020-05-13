@@ -1,0 +1,6 @@
+- content_for :title, "Selecionar estado"
+
+.columns.is-multiline
+  - @states.each do |state|
+    .column.is-one-quarter-fullhd.is-one-third-desktop.is-half-tablet
+      = link_to state[:name], contents_by_state_path(state[:slug]), class: "box has-background-primary has-text-white is-uppercase has-text-weight-bold has-text-centered"

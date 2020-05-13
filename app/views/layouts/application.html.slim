@@ -5,18 +5,45 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1"
     title
       = content_for?(:title) ? "#{content_for(:title)} - " : ""
-      | Covid19BR.pub
+      | covid19BR.pub
     = csrf_meta_tags
     = csp_meta_tag
 
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag "https://www.googletagmanager.com/gtag/js?id=UA-162234683-2", async: true
 
   body.has-navbar-fixed-top
-    nav.navbar.is-primary.is-fixed-top
+    nav.navbar.is-info.is-fixed-top[role="navigation" aria-label="dropdown navigation"]
       .container
         .navbar-brand
-          = link_to "COVID19BR.pub", "/", class: "navbar-item"
+          = link_to "Monitor da COVID-19 no Brasil", "/", class: "navbar-item"
+          a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"
+            span aria-hidden="true"
+            span aria-hidden="true"
+            span aria-hidden="true"
+        #navbarBasicExample.navbar-menu
+          .navbar-end
+            = link_to "Publicações por estado", state_selection_path, class: "navbar-item"
+            a.navbar-item[href="#"] Estatísticas
+            a.navbar-item[href="#"] Fontes
+            a.navbar-item[href="#"] Sobre o projeto
+    - if content_for?(:page_header) || content_for?(:title)
+      section.hero.is-small.is-bold.is-link
+        .hero-body
+          .container
+            p.title.is-3= content_for(:page_header) || content_for(:title)
     section.section[style="padding: 1rem"]
       .container
+        - #  - if flash[:notice]
+        - #    .alert.alert-success= flash[:notice]
+        - #  - if flash[:alert]
+        - #    .alert.alert-danger= flash[:alert]
         = yield
+    footer.footer
+      .container
+        p.has-text-grey-light.has-text-centered
+          ' O Monitor da COVID-19 no Brasil está sendo desenvolvido com muito carinho por
+          a href="https://twitter.com/fgrehm" target="_blank"
+            | Fábio Rehm
+          | .
