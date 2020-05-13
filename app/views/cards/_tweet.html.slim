@@ -1,8 +1,8 @@
 .twitter-wrapper[data=data]
-  = cache [content, "v1"] do
+  = cache [content, "v2"] do
+    - content_source = content.content_source
     - if content.extra_data["retweet"]
-      - content_source = content.content_source
       - retweeter_handle = content_source.twitter
       h4[style="text-align: center"]
         = link_to "@#{retweeter_handle} repostou as #{content.published_at.in_time_zone("America/Sao_Paulo").strftime("%H:%M - %d/%m/%y")}", content.url, target: "_blank"
-    == OEmbed::Providers.get(content.url, maxwidth: 550, hide_thread: true, omit_script: true, lang: "pt", dnt: true).html rescue "Tweet removido de '#{content.content_source.name}'"
+    = custom_twitter_embed(content_source, content.url)
