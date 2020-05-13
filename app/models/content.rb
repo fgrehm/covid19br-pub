@@ -11,6 +11,13 @@ class Content < ApplicationRecord
   after_initialize(unless: :persisted?) do
     self.uuid = SecureRandom.uuid if self.uuid.blank?
   end
+  after_save(if: :requires_reindexing?) do
+     SearchDocument.index!(self)
+  end
+
+  def requires_reindexing?
+    changed? || content_text.changed?
+  end
 
   def display_text=(display_text)
     super(display_text.truncate(450))

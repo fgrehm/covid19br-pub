@@ -144,6 +144,9 @@ GEM
     parser (2.7.1.2)
       ast (~> 2.4.0)
     pg (1.2.3)
+    pg_search (2.3.2)
+      activerecord (>= 5.2)
+      activesupport (>= 5.2)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -285,6 +288,7 @@ DEPENDENCIES
   kaminari
   listen
   pg
+  pg_search
   pry-rails
   puma
   rails (~> 6.0.0)

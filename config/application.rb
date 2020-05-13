@@ -39,5 +39,8 @@ module Covid19brInfo
     config.x.sidekiq_password = ENV.fetch("SIDEKIQ_PASSWORD") { raise "Missing SIDEKIQ_PASSWORD" if Rails.env.production? }
     config.x.webhook_user = ENV.fetch("WEBHOOK_USERNAME") { raise "Missing WEBHOOK_USERNAME" if Rails.env.production? }
     config.x.webhook_password = ENV.fetch("WEBHOOK_PASSWORD") { raise "Missing WEBHOOK_PASSWORD" if Rails.env.production? }
+
+    # For keeping track of full text generated columns
+    config.active_record.schema_format = :sql
   end
 end

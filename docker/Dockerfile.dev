@@ -7,6 +7,7 @@ RUN apk add --no-cache \
             less \
             nodejs \
             postgresql-dev \
+            postgresql-client \
             yarn \
             tzdata \
     && gem install bundler --version 2.1.4
