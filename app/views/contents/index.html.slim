@@ -7,7 +7,9 @@
   - content_for :title, "Todas as Publicações"
 
 - unless request.xhr?
-  - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug]) : "/"
+  - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug]) : nil
+  - url ||= params[:source_guid].present? ? contents_by_source_path(params[:source_guid]) : nil
+  - url ||= "/publicacoes"
   form[method="get" action=url]
     .field.has-addons
       .control.is-expanded
@@ -39,7 +41,9 @@
         - if !@contents.last_page?
           - # HACK: This is terrible, but was in a rush
           - next_page = params.fetch(:page, 1).to_i + 1
-          - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug], page: next_page) : "/?page=#{next_page}"
+          - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug], page: next_page) : nil
+          - url ||= params[:source_guid].present? ? contents_by_source_path(params[:source_guid], page: next_page) : nil
+          - url ||= "/publicacoes?page=#{next_page}"
           - url << "&q=#{params[:q]}" if params[:q].present?
           button#see-more-contents-btn.button.is-fullwidth.is-primary[data-url=url]
             | VEJA MAIS
