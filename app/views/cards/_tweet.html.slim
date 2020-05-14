@@ -1,6 +1,6 @@
 .twitter-wrapper[data=data]
-  = cache [content, "v2"] do
-    - content_source = content.content_source
+  - content_source = content.content_source
+  = cache [content_source, content, "v1"] do
     - if content.extra_data["retweet"]
       - retweeter_handle = content_source.twitter
       h4[style="text-align: center"]

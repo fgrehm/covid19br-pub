@@ -1,0 +1,32 @@
+- content_for(:page_header_full) do
+  section.hero.is-medium.is-bold.is-link
+    .hero-body
+        .container
+          h1.title.is-2 Monitor da COVID-19 no Brasil
+          h2.subtitle.is-3 Projeto de monitoramento de publicações oficiais relacionadas a COVID-19 no Brasil
+
+section.hero.is-medium
+  .hero-body
+    .container
+      .columns.is-multiline.is-centered
+        .column.is-4.has-text-centered
+          .icon.is-large
+            i.fa.fa-database.fa-4x
+          h3.title.is-5 Acesse as publicações
+          .content
+            p Mais de 20 mil postagens de todo o país foram analisadas e mais de 10 mil publicações relacionadas a COVID-19 foram encontradas.
+          = link_to "Visualizar", contents_path, class: "button is-primary"
+        .column.is-4.has-text-centered
+          .icon.is-large
+            i.fa.fa-search.fa-4x
+          h3.title.is-5 Informações do seu estado
+          .content
+            p Temos cobertura de ao menos uma fonte para todos os estados do país e mais fontes serão adicionadas ao longo do tempo.
+          = link_to "Acesse", state_selection_path, class: "button is-primary"
+        .column.is-4.has-text-centered
+          .icon.is-large
+            i.fa.fa-question.fa-4x
+          h3.title.is-5 Sobre o projeto
+          .content
+            p O covid19br.pub é um projeto de código aberto que agrega publicações de instituições governamentais sobre a pandemia no Brasil.
+          = link_to "Saiba mais", about_page_path, class: "button is-primary"

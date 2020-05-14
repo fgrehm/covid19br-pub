@@ -40,6 +40,10 @@ class ContentsController < ApplicationController
       page: params.fetch(:page, 1),
     }
     search_params[:state_code] = STATE_SLUGS[params[:state_slug]] if params.key?(:state_slug)
+    if params.key?(:source_guid)
+      @content_source = ContentSource.find_by!(guid: params[:source_guid])
+      search_params[:content_source] = @content_source
+    end
 
     @contents = ContentSearch.call(**search_params)
 

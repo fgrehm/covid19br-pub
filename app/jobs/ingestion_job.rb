@@ -1,4 +1,6 @@
 class IngestionJob < ApplicationJob
+  sidekiq_options queue: "critical"
+
   def perform(args = {})
     input, s3_key, input_model_id = args.values_at("input", "s3_key", "input_model_id")
 

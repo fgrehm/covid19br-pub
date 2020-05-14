@@ -1,0 +1,17 @@
+- content_for :title, "Fontes"
+.content
+  table.table
+    thead
+      tr
+        th Nome
+        th
+    tbody
+      - @content_sources.each do |content_source|
+        tr
+          td= content_source.name
+          td.has-text-right
+            = link_to "publicações", contents_by_source_path(content_source.guid)
+            '  |
+            = link_to "site", content_source.site, target: "_blank"
+            '  |
+            = link_to "twitter", "https://twitter.com/#{content_source.twitter}", target: "_blank"

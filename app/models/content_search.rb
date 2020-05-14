@@ -1,8 +1,9 @@
 class ContentSearch
-  def self.call(query: nil, page: nil, state_code: nil)
+  def self.call(query: nil, page: nil, state_code: nil, content_source: nil)
     documents = SearchDocument.order(published_at: :desc)
 
     documents = documents.where(state: state_code) if state_code.present?
+    documents = documents.where(content_source: content_source) if content_source.present?
     documents = documents.search(query) if query.present?
     documents = documents.page(page) if page
     Results.new(documents)

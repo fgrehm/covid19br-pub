@@ -1,6 +1,8 @@
 - # TODO: Visualizacao em lista / tabela
 - if params[:state_slug].present?
   - content_for :title, params[:state_slug].titleize
+- elsif @content_source
+  - content_for :title, @content_source.name
 - else
   - content_for :title, "Todas as Publicações"
 

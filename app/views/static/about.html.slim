@@ -1,0 +1,88 @@
+- content_for :title, "Sobre o projeto"
+
+.content
+  h1 Motivação
+
+  p Desde o início do surto (antes de virar uma pandemia) tem havido um foco no número de casos em cada país e diversas recomendações de como achatar a curva para conter a pandemia do COVID-19. Essas informações são extremamente importantes mas nós também precisamos nos informar sobre os impactos que a pandemia está gerando no nosso cotidiano através de fontes confiáveis (de preferência oficiais) e de forma saudável.
+
+  h2 Acesso à informação
+
+  p O Brasil é um país de tamanho continental com diferentes realidades e por isso muita informação será publicada até que a pandemia esteja sob controle. Isso irá gerar uma fragmentação da informação que muitas vezes será contada de formas diferentes por pessoas diferentes sendo que na verdade a fonte da informação será a mesma: algum comunicado de alguma instituição governamental (Governo estadual, secretaria de saúde, etc). A exemplo disso temos as informações sobre o total de casos no país que é divulgada a nível nacional através do Ministério da Saúde e a nível estadual / municipal por cada secretaria, gerando uma divergência nos números toda vez que alguma coletiva de imprensa do Ministério da Saúde é feita.
+
+  p
+    ' As previsões de duração da pandemia feitas por cientistas variam de alguns meses até mais de um ano e por isso acredito que algo deva ser feito para garantir que a população estará devidamente informada sem ter que estar ligada 24 horas por dia no noticiário. Sem falar que muitos sites de notícias tem
+    a[href="https://pt.wikipedia.org/wiki/Muro_de_pagamento" target="_blank"] paywall
+    |  hoje em dia, o que inviabiliza o acesso para muitas pessoas que terão apenas exposição ao título das notícias sem ter acesso ao conteúdo completo.
+
+  p Por outro lado, não é fácil achar a informação desejada que pode variar de "Será que amanhã vai ter ônibus?" a "O que meu governante está fazendo para conter a pandemia onde eu moro?", passando também por a não menos importante "Quantos casos de COVID-19 tem onde eu moro?". Por exemplo, os casos confirmados e suspeitos às vezes são divulgados pelo Governo Estadual, as vezes pela Secretária de Saúde, às vezes no site, as vezes no Twitter. Sem falar que não existe uma lista de fácil acesso a todos esses órgãos a nível nacional.
+
+  h2 Uma questão de saúde pública
+
+  p O fato de ser difícil achar as informações oficiais gera uma dependência excessiva na "grande mídia" e / ou redes sociais para nos mantermos informados. Além de contribuir para propagação das famigeradas "fake news", outro problema gerado pelo excesso de exposição a essas fontes de informação é que ficamos a mercê do que outros consideram urgente.
+
+  p
+    ' A exemplo disso, tenho notado, ao meu ver, uma utilização de certa forma abusiva da palavra
+    strong[style="color: white; background: red"] URGENTE
+    '  em praticamente tudo relacionado a COVID-19.
+    a[href="" target="_blank"] Quando iniciei este projeto em Março de 2020
+    '  a utilização desse tipo de comunicação era mais abusiva mas acredito que os meio de comunicação começaram a se atentar a questoes de saúde mental e diminuiram a frequência com que isso é feito. A exposição a esse excesso de
+    strong[style="color: white; background: red"] URGENTE
+    '  nas comunicações pode gerar uma ansiedade e outros transtornos psicológicos em pessoas que já estão vivendo mudanças bruscas nos seus cotidianos e passando cada vez mais tempo online dentro de suas casas. não é todo mundo que tem cabeça para ser bombardeado de informações
+    strong[style="color: white; background: red"] URGENTE
+    | s 24 horas por dia.
+
+  h1 Objetivo
+
+  p O propósito do projeto é agregar informações relacionadas à pandemia da COVID-19
+    publicadas por instituições governamentais variadas de diversas localidades num
+    único portal de notícias. Não será gerado nenhum conteúdo novo, o monitor irá
+    apenas disponibilizar os dados numa interface de fácil acesso às informações,
+    possibilitando busca por palavras chaves e filtros como localidade, tipo de
+    instituição (Governo estadual, Secretaria de Saúde, etc) e tipo de informação
+    (Notícia, Tweet, Boletim Epidemiológico, Editais, Diário Oficial, etc).
+
+  p Com isso eu espero prover uma fonte centralizada de informações relevantes
+    obtidas de fontes confiáveis que poderá ser consumida por públicos distintos de
+    maneira saudável com a frequência apropriada a cada pessoa. A ideia é que
+    possamos nos manter melhor informados sobre a situação não apenas a nível
+    nacional mas também a nível local (cidade, estado, região, etc) sem depender da
+    cobertura de sites de notícias ou mensagens em redes sociais que muitas vezes
+    chegam até nós sem nenhuma informação de onde foi obtida.
+
+  p Por fim, existem diversas iniciativas em torno da pandemia no país, cada uma
+    tentando melhorar a situação de alguma forma. Imagino que o Monitor seja de
+    grande valia para essas pessoas e que novas informações possam ser geradas
+    através dos dados disponibilizados pelo projeto.
+
+  h1 O que foi feito até agora?
+
+  p
+    ' Durante o período de Março e Abril de 2020 criei um protótipo de um "robô" para monitorar sites e contas do twitter de alguns orgãos estaduais em busca de notícias / tweets que possuem algumas palavras chave como "pandemia", "coronavírus" e "covid". Os dados obtidos e uma ideia simples de visualização das informações ficou disponível no site
+    a[href="https://fgrehm.github.io/monitor-covid19-br/" target="_blank"] fgrehm.github.io/monitor-covid19-br
+    | . O protótipo serviu para validar a idéia e ver se havia interesse suficiente para evoluir para algo mais robusto que no caso se tornou este site que foi lançado em Maio.
+
+  p
+    ' No momento temos cobertura de ao menos uma fonte de dados para todos os estados do Brasil sendo na grande maioria contas de Twitter dos governos estaduais e algumas secretarias de saúde estaduais. Para maiores informações sobre as fontes disponiveis você pode acessar o link
+    =' link_to "fontes", content_sources_path
+    ' no menu acima.
+  p
+    ' As publicações são obtidas em "tempo real" (entre aspas pois a defasagem é de aproximadamente até uma hora) e também são disponibilizadas algumas estatísticas sobre o que foi encontrado no link
+    = link_to "estatísticas", stats_path
+    | .
+
+  h1 Quer usar os dados?
+
+  p
+    ' Se você é jornalista, programador ou cientista de dados e tem interesse de utilizar as informações para outros fins entre em contato comigo via
+    a[href="https://github.com/fgrehm/covid19br-pub/issues/new" target="_blank"] GitHub
+    '  ou
+    a[href="https://twitter.com/fgrehm"] Twitter
+    | .
+
+  h1 O código do projeto é aberto?
+
+  p
+    ' Sim! E está
+    a[href="https://github.com/fgrehm/covid19br-pub" target="_blank"]
+      | disponível no GitHub
+    | .
