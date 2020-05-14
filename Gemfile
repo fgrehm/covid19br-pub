@@ -13,6 +13,7 @@ gem "puma"
 gem "rails", "~> 6.0.0"
 
 gem "aws-sdk-s3"
+gem "dalli"
 gem "bugsnag"
 gem "cloudinary"
 gem "kaminari"
