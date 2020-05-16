@@ -3,6 +3,7 @@ module Ingestion
     PIPELINE = [
       Actions::ProcessInput,
       Actions::NormalizeInput,
+      Actions::UpsertScrapedContent,
       Actions::CheckForRelevancy,
       Actions::UpsertContent,
       Actions::CaptureImage,

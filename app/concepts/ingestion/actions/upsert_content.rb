@@ -29,10 +29,17 @@ module Ingestion
           content_source: content_source,
           url_hash: url_hash
         )
-        content.update!(params)
+        env[:content] = content
+
+        if !content.persisted? || content.found_at < params.fetch(:found_at)
+          content.update!(params)
+        end
 
         input_model = env[:input_model].presence
         input_model.update!(content: content) if input_model
+
+        scraped_content = env[:scraped_content].presence
+        scraped_content.update!(content: content) if scraped_content
 
         env[:content] = content
       end

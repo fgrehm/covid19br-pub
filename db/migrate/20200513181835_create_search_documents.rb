@@ -1,6 +1,4 @@
 class CreateSearchDocuments < ActiveRecord::Migration[6.0]
-  # Based on https://pganalyze.com/blog/full-text-search-ruby-rails-postgres
-
   def up
     create_table :search_documents do |t|
       t.references :content_source, null: false, foreign_key: true, index: true

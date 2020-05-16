@@ -1,6 +1,7 @@
 class Content < ApplicationRecord
   attr_readonly :uuid
 
+  belongs_to :scraped_content, optional: true
   belongs_to :content_source
   has_one :content_text, dependent: :destroy
   has_many_attached :versions
@@ -12,7 +13,15 @@ class Content < ApplicationRecord
     self.uuid = SecureRandom.uuid if self.uuid.blank?
   end
   after_save(if: :requires_reindexing?) do
-     SearchDocument.index!(self)
+    SearchDocument.index!(self)
+  end
+
+  def self.articles
+    where(content_type: "article")
+  end
+
+  def self.tweets
+    where(content_type: "tweet")
   end
 
   def requires_reindexing?

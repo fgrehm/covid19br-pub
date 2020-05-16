@@ -1,5 +1,6 @@
 class Input < ApplicationRecord
   belongs_to :content, optional: true
+  belongs_to :scraped_content, optional: true
   has_one_attached :file
 
   after_initialize(unless: :persisted?) do

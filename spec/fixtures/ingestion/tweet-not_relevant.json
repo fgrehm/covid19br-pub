@@ -1,0 +1,185 @@
+{
+  "tweet": {
+    "created_at": "Thu Mar 05 20:44:24 +0000 2020",
+    "id": 1235667501557731300,
+    "id_str": "1235667501557731336",
+    "full_text": "São, aproximadamente, 70 mil formados na graduação (licenciaturas e bacharelados) e 5.838 mil na pós-graduação stricto sensu (mestrados e doutorados), além da pós-graduação lato sensu (especializações e residências).\n\n📸 Davi Pinheiro https://t.co/BbnGTHP9Wc",
+    "truncated": false,
+    "display_text_range": [
+      0,
+      233
+    ],
+    "entities": {
+      "hashtags": [],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "media": [
+        {
+          "id": 1235667378874314800,
+          "id_str": "1235667378874314756",
+          "indices": [
+            234,
+            257
+          ],
+          "media_url": "http://pbs.twimg.com/media/ESX47ypXcAQo5Z-.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/ESX47ypXcAQo5Z-.jpg",
+          "url": "https://t.co/BbnGTHP9Wc",
+          "display_url": "pic.twitter.com/BbnGTHP9Wc",
+          "expanded_url": "https://twitter.com/GovernoDoCeara/status/1235667501557731336/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1080,
+              "h": 1080,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1080,
+              "h": 1080,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1235667378874314800,
+          "id_str": "1235667378874314756",
+          "indices": [
+            234,
+            257
+          ],
+          "media_url": "http://pbs.twimg.com/media/ESX47ypXcAQo5Z-.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/ESX47ypXcAQo5Z-.jpg",
+          "url": "https://t.co/BbnGTHP9Wc",
+          "display_url": "pic.twitter.com/BbnGTHP9Wc",
+          "expanded_url": "https://twitter.com/GovernoDoCeara/status/1235667501557731336/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1080,
+              "h": 1080,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1080,
+              "h": 1080,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 680,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"https://mobile.twitter.com\" rel=\"nofollow\">Twitter Web App</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 247310664,
+      "id_str": "247310664",
+      "name": "Governo do Ceará",
+      "screen_name": "GovernoDoCeara",
+      "location": "Ceará",
+      "description": "Perfil oficial do Governo do Estado do Ceará.",
+      "url": "https://t.co/5LLdDDpe28",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/5LLdDDpe28",
+              "expanded_url": "http://www.ceara.gov.br",
+              "display_url": "ceara.gov.br",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 285213,
+      "friends_count": 170,
+      "listed_count": 213,
+      "created_at": "Fri Feb 04 14:52:14 +0000 2011",
+      "favourites_count": 84,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": true,
+      "statuses_count": 20017,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "FFE100",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1109116132710141953/_RVwh_4M_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1109116132710141953/_RVwh_4M_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/247310664/1584983283",
+      "profile_link_color": "75946C",
+      "profile_sidebar_border_color": "000000",
+      "profile_sidebar_fill_color": "D9EBE1",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 12,
+    "favorite_count": 113,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "pt"
+  },
+  "full_text": "São, aproximadamente, 70 mil formados na graduação (licenciaturas e bacharelados) e 5.838 mil na pós-graduação stricto sensu (mestrados e doutorados), além da pós-graduação lato sensu (especializações e residências).\n\n📸 Davi Pinheiro https://t.co/BbnGTHP9Wc",
+  "image_url": "https://pbs.twimg.com/media/ESX47ypXcAQo5Z-.jpg",
+  "published_at": "2020-03-05 20:44:24 +0000",
+  "found_at": "2020-04-21 16:02:55 -0700",
+  "url": "https://twitter.com/GovernoDoCeara/status/1235667501557731336",
+  "content_type": "tweet",
+  "source_guid": "br-gov-ce",
+  "url_hash": "02a964c89e262e842aa47228231790aa9b41b735",
+  "full_text_hash": "3211cf969d1a387df031e3ad4f95bd7e70455d28",
+  "key": "br-gov-ce/tweet-02a964c89e262e842aa47228231790aa9b41b735.json"
+}

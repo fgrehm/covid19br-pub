@@ -79,7 +79,9 @@ RSpec.describe Content, type: :model do
       guid: "br-gov-xpto",
       name: "XPTO State Government",
       region: "Some Region",
-      state: "XPTO"
+      state: "XPTO",
+      source_type: "state_government",
+      source_scope: "state"
     }.merge(attrs))
   end
 end

@@ -1,0 +1,207 @@
+{
+  "tweet": {
+    "created_at": "Fri Mar 27 13:00:01 +0000 2020",
+    "id": 1243523168733556700,
+    "id_str": "1243523168733556736",
+    "full_text": "⚠ Não caia em fake news!\n\n❗ É falsa mensagem sobre retomada gradual de atividades.\n\n✅ Compartilhe!\n\n#covid19 \n#pandemia \n#coronavirusnobrasil https://t.co/uwUZf2WoJu",
+    "truncated": false,
+    "display_text_range": [
+      0,
+      141
+    ],
+    "entities": {
+      "hashtags": [
+        {
+          "text": "covid19",
+          "indices": [
+            100,
+            108
+          ]
+        },
+        {
+          "text": "pandemia",
+          "indices": [
+            110,
+            119
+          ]
+        },
+        {
+          "text": "coronavirusnobrasil",
+          "indices": [
+            121,
+            141
+          ]
+        }
+      ],
+      "symbols": [],
+      "user_mentions": [],
+      "urls": [],
+      "media": [
+        {
+          "id": 1243514933586940000,
+          "id_str": "1243514933586939906",
+          "indices": [
+            142,
+            165
+          ],
+          "media_url": "http://pbs.twimg.com/media/EUHaPmFX0AIUOXJ.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/EUHaPmFX0AIUOXJ.jpg",
+          "url": "https://t.co/uwUZf2WoJu",
+          "display_url": "pic.twitter.com/uwUZf2WoJu",
+          "expanded_url": "https://twitter.com/governosp/status/1243523168733556736/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 660,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 374,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1200,
+              "h": 660,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "extended_entities": {
+      "media": [
+        {
+          "id": 1243514933586940000,
+          "id_str": "1243514933586939906",
+          "indices": [
+            142,
+            165
+          ],
+          "media_url": "http://pbs.twimg.com/media/EUHaPmFX0AIUOXJ.jpg",
+          "media_url_https": "https://pbs.twimg.com/media/EUHaPmFX0AIUOXJ.jpg",
+          "url": "https://t.co/uwUZf2WoJu",
+          "display_url": "pic.twitter.com/uwUZf2WoJu",
+          "expanded_url": "https://twitter.com/governosp/status/1243523168733556736/photo/1",
+          "type": "photo",
+          "sizes": {
+            "thumb": {
+              "w": 150,
+              "h": 150,
+              "resize": "crop"
+            },
+            "medium": {
+              "w": 1200,
+              "h": 660,
+              "resize": "fit"
+            },
+            "small": {
+              "w": 680,
+              "h": 374,
+              "resize": "fit"
+            },
+            "large": {
+              "w": 1200,
+              "h": 660,
+              "resize": "fit"
+            }
+          }
+        }
+      ]
+    },
+    "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
+    "in_reply_to_status_id": null,
+    "in_reply_to_status_id_str": null,
+    "in_reply_to_user_id": null,
+    "in_reply_to_user_id_str": null,
+    "in_reply_to_screen_name": null,
+    "user": {
+      "id": 24746057,
+      "id_str": "24746057",
+      "name": "Governo de S. Paulo",
+      "screen_name": "governosp",
+      "location": "São Paulo",
+      "description": "Twitter Oficial do Governo do Estado de São Paulo",
+      "url": "https://t.co/leRCarzjLp",
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "url": "https://t.co/leRCarzjLp",
+              "expanded_url": "http://www.saopaulo.sp.gov.br",
+              "display_url": "saopaulo.sp.gov.br",
+              "indices": [
+                0,
+                23
+              ]
+            }
+          ]
+        },
+        "description": {
+          "urls": []
+        }
+      },
+      "protected": false,
+      "followers_count": 424033,
+      "friends_count": 130,
+      "listed_count": 1600,
+      "created_at": "Mon Mar 16 18:53:24 +0000 2009",
+      "favourites_count": 1380,
+      "utc_offset": null,
+      "time_zone": null,
+      "geo_enabled": true,
+      "verified": true,
+      "statuses_count": 92357,
+      "lang": null,
+      "contributors_enabled": false,
+      "is_translator": false,
+      "is_translation_enabled": false,
+      "profile_background_color": "333333",
+      "profile_background_image_url": "http://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_image_url_https": "https://abs.twimg.com/images/themes/theme1/bg.png",
+      "profile_background_tile": false,
+      "profile_image_url": "http://pbs.twimg.com/profile_images/1201546535034609664/f7yH7_uR_normal.jpg",
+      "profile_image_url_https": "https://pbs.twimg.com/profile_images/1201546535034609664/f7yH7_uR_normal.jpg",
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/24746057/1584482403",
+      "profile_link_color": "000000",
+      "profile_sidebar_border_color": "CCCCCC",
+      "profile_sidebar_fill_color": "E6E6E6",
+      "profile_text_color": "333333",
+      "profile_use_background_image": true,
+      "has_extended_profile": false,
+      "default_profile": false,
+      "default_profile_image": false,
+      "following": false,
+      "follow_request_sent": false,
+      "notifications": false,
+      "translator_type": "none"
+    },
+    "geo": null,
+    "coordinates": null,
+    "place": null,
+    "contributors": null,
+    "is_quote_status": false,
+    "retweet_count": 102,
+    "favorite_count": 227,
+    "favorited": false,
+    "retweeted": false,
+    "possibly_sensitive": false,
+    "lang": "pt"
+  },
+  "full_text": "⚠ Não caia em fake news!\n\n❗ É falsa mensagem sobre retomada gradual de atividades.\n\n✅ Compartilhe!\n\n#covid19 \n#pandemia \n#coronavirusnobrasil https://t.co/uwUZf2WoJu",
+  "image_url": "https://pbs.twimg.com/media/EUHaPmFX0AIUOXJ.jpg",
+  "published_at": "2020-03-27 13:00:01 +0000",
+  "found_at": "2020-04-18 20:18:48 -0700",
+  "url": "https://twitter.com/governosp/status/1243523168733556736",
+  "content_type": "tweet",
+  "source_guid": "br-gov-sp",
+  "url_hash": "ffbe10f8f5e9dd067c1328612a434b79724c0775",
+  "full_text_hash": "5e7b7b8c2233db1053c038d13780b6ead37ed742",
+  "key": "br-gov-sp/tweet-ffbe10f8f5e9dd067c1328612a434b79724c0775.json"
+}

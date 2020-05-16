@@ -221,7 +221,8 @@ CREATE TABLE public.inputs (
     found_at timestamp without time zone NOT NULL,
     content_id bigint,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    scraped_content_id bigint
 );
 
 
@@ -251,6 +252,44 @@ ALTER SEQUENCE public.inputs_id_seq OWNED BY public.inputs.id;
 CREATE TABLE public.schema_migrations (
     version character varying NOT NULL
 );
+
+
+--
+-- Name: scraped_contents; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.scraped_contents (
+    id bigint NOT NULL,
+    content_source_id bigint NOT NULL,
+    content_id bigint,
+    content_type character varying NOT NULL,
+    first_seen_at timestamp without time zone NOT NULL,
+    last_seen_at timestamp without time zone NOT NULL,
+    detected_removal_at timestamp without time zone,
+    url_hash character varying,
+    url text,
+    created_at timestamp(6) without time zone NOT NULL,
+    updated_at timestamp(6) without time zone NOT NULL
+);
+
+
+--
+-- Name: scraped_contents_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.scraped_contents_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: scraped_contents_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.scraped_contents_id_seq OWNED BY public.scraped_contents.id;
 
 
 --
@@ -335,6 +374,13 @@ ALTER TABLE ONLY public.inputs ALTER COLUMN id SET DEFAULT nextval('public.input
 
 
 --
+-- Name: scraped_contents id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.scraped_contents ALTER COLUMN id SET DEFAULT nextval('public.scraped_contents_id_seq'::regclass);
+
+
+--
 -- Name: search_documents id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -403,6 +449,14 @@ ALTER TABLE ONLY public.inputs
 
 ALTER TABLE ONLY public.schema_migrations
     ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+--
+-- Name: scraped_contents scraped_contents_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.scraped_contents
+    ADD CONSTRAINT scraped_contents_pkey PRIMARY KEY (id);
 
 
 --
@@ -533,10 +587,45 @@ CREATE UNIQUE INDEX index_inputs_on_key_and_found_at ON public.inputs USING btre
 
 
 --
+-- Name: index_inputs_on_scraped_content_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_inputs_on_scraped_content_id ON public.inputs USING btree (scraped_content_id);
+
+
+--
 -- Name: index_inputs_on_uuid; Type: INDEX; Schema: public; Owner: -
 --
 
 CREATE UNIQUE INDEX index_inputs_on_uuid ON public.inputs USING btree (uuid);
+
+
+--
+-- Name: index_scraped_contents_on_content_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_scraped_contents_on_content_id ON public.scraped_contents USING btree (content_id);
+
+
+--
+-- Name: index_scraped_contents_on_content_source_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_scraped_contents_on_content_source_id ON public.scraped_contents USING btree (content_source_id);
+
+
+--
+-- Name: index_scraped_contents_on_content_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_scraped_contents_on_content_type ON public.scraped_contents USING btree (content_type);
+
+
+--
+-- Name: index_scraped_contents_on_url_hash; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_scraped_contents_on_url_hash ON public.scraped_contents USING btree (url_hash);
 
 
 --
@@ -572,6 +661,30 @@ CREATE INDEX index_search_documents_on_searchable ON public.search_documents USI
 --
 
 CREATE INDEX index_search_documents_on_state_and_published_at ON public.search_documents USING btree (state, published_at);
+
+
+--
+-- Name: inputs fk_rails_03e8e7074d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inputs
+    ADD CONSTRAINT fk_rails_03e8e7074d FOREIGN KEY (scraped_content_id) REFERENCES public.scraped_contents(id);
+
+
+--
+-- Name: scraped_contents fk_rails_058147077d; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.scraped_contents
+    ADD CONSTRAINT fk_rails_058147077d FOREIGN KEY (content_source_id) REFERENCES public.content_sources(id);
+
+
+--
+-- Name: scraped_contents fk_rails_0d91515e7b; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.scraped_contents
+    ADD CONSTRAINT fk_rails_0d91515e7b FOREIGN KEY (content_id) REFERENCES public.contents(id);
 
 
 --
@@ -637,6 +750,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200501224941'),
 ('20200511012600'),
 ('20200513181835'),
-('20200513202109');
+('20200513202109'),
+('20200515224605');
 
 

@@ -1,3 +1,4 @@
+# Based on https://pganalyze.com/blog/full-text-search-ruby-rails-postgres
 class SearchDocument < ApplicationRecord
   include PgSearch::Model
 

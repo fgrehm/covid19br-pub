@@ -33,10 +33,12 @@ group :development, :test do
 end
 
 group :test do
+  gem "database_cleaner-active_record"
   gem "webmock", require: false
 end
 
 group :development do
+  gem "guard-rspec"
   gem "listen"
   gem "pry-rails"
   gem "web-console"
