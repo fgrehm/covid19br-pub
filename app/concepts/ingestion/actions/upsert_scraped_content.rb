@@ -2,7 +2,7 @@ module Ingestion
   module Actions
     class UpsertScrapedContent
       def self.call(env)
-        params = env.fetch(:input).slice(:source_guid, :content_type, :found_at, :url_hash, :url)
+        params = env.fetch(:input).slice(:source_guid, :content_type, :found_at, :url_hash, :url, :published_at)
 
         # TODO: Consider storing the content source on env
         content_source = ::ContentSource.find_by!(guid: params.delete(:source_guid))

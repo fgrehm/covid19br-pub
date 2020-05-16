@@ -269,7 +269,8 @@ CREATE TABLE public.scraped_contents (
     url_hash character varying,
     url text,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL
+    updated_at timestamp(6) without time zone NOT NULL,
+    published_at timestamp without time zone
 );
 
 
@@ -751,6 +752,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200511012600'),
 ('20200513181835'),
 ('20200513202109'),
-('20200515224605');
+('20200515224605'),
+('20200516021928');
 
 
