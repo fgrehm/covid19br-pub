@@ -1,7 +1,6 @@
 class Content < ApplicationRecord
   attr_readonly :uuid
 
-  belongs_to :scraped_content, optional: true
   belongs_to :content_source
   has_one :content_text, dependent: :destroy
   has_many_attached :versions

@@ -219,9 +219,7 @@ CREATE TABLE public.inputs (
     uuid character varying NOT NULL,
     key character varying NOT NULL,
     found_at timestamp without time zone NOT NULL,
-    content_id bigint,
     created_at timestamp(6) without time zone NOT NULL,
-    updated_at timestamp(6) without time zone NOT NULL,
     scraped_content_id bigint
 );
 
@@ -270,7 +268,7 @@ CREATE TABLE public.scraped_contents (
     url text,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL,
-    published_at timestamp without time zone
+    published_at timestamp without time zone NOT NULL
 );
 
 
@@ -574,13 +572,6 @@ CREATE UNIQUE INDEX index_contents_on_uuid ON public.contents USING btree (uuid)
 
 
 --
--- Name: index_inputs_on_content_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_inputs_on_content_id ON public.inputs USING btree (content_id);
-
-
---
 -- Name: index_inputs_on_key_and_found_at; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -705,14 +696,6 @@ ALTER TABLE ONLY public.contents
 
 
 --
--- Name: inputs fk_rails_88449bda1e; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.inputs
-    ADD CONSTRAINT fk_rails_88449bda1e FOREIGN KEY (content_id) REFERENCES public.contents(id);
-
-
---
 -- Name: content_texts fk_rails_9f1ebeca8f; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -753,6 +736,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200513181835'),
 ('20200513202109'),
 ('20200515224605'),
-('20200516021928');
+('20200516021928'),
+('20200516024707'),
+('20200516025408');
 
 

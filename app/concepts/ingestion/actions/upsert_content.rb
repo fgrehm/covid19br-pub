@@ -35,9 +35,6 @@ module Ingestion
           content.update!(params)
         end
 
-        input_model = env[:input_model].presence
-        input_model.update!(content: content) if input_model
-
         scraped_content = env[:scraped_content].presence
         scraped_content.update!(content: content) if scraped_content
 

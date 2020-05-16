@@ -1,5 +1,6 @@
 class Input < ApplicationRecord
-  belongs_to :content, optional: true
+  # Ideally this should not be optional / NOT NULL but that is going to require
+  # a few changes to how ingestion works
   belongs_to :scraped_content, optional: true
   has_one_attached :file
 
@@ -24,7 +25,7 @@ class Input < ApplicationRecord
 
   def archive!(raw_input)
     self.save! # So we get an ID
-    timestamp = self.updated_at.strftime("%Y-%m-%d--%H-%M-%S")
+    timestamp = self.created_at.strftime("%Y-%m-%d--%H-%M-%S")
 
     # https://stackoverflow.com/a/52181467 custom prefix, ugly workaround for
     # the fact that activestorage does not support key prefixes for S3. More
