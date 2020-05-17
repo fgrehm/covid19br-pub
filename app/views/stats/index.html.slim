@@ -1,2 +1,8 @@
 - content_for :title, "Estatísticas"
-p Em Breve
+canvas[id="statsChart" width="400" height="290" data=@report]
+br
+p.has-text-centered.is-size-7
+  em A COVID-19 foi declarada uma pandemia em 2020, portanto serão analisados apenas publicações a partir de 01/01/2020
+
+javascript:
+  initStatsChart(document.getElementById("statsChart"));

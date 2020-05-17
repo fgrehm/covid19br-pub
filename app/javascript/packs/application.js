@@ -8,6 +8,9 @@ require("turbolinks").start();
 require("@rails/activestorage").start();
 require("jquery");
 
+import moment from "moment";
+import Chart from 'chart.js';
+
 import "../styles/application";
 
 window.dataLayer = window.dataLayer || [];
@@ -33,6 +36,13 @@ function initTwitter() {
   }(document, "script", "twitter-wjs"));
 }
 
+$(document).ready(function() {
+  $(".navbar-burger").click(function() {
+    $(".navbar-burger").toggleClass("is-active");
+    $(".navbar-menu").toggleClass("is-active");
+  });
+});
+
 document.addEventListener("turbolinks:load", function(event) {
   if (!window.twttr) {
     initTwitter();
@@ -54,15 +64,72 @@ document.addEventListener("turbolinks:load", function(event) {
       twttr.widgets.load();
     });
   });
-
-  $(document).ready(function() {
-    $(".navbar-burger").click(function() {
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-    });
-  });
 });
 
+function newDate(days) {
+  return moment().add(days, 'd').toDate();
+}
+
+window.initStatsChart = (el) => {
+  const $el = $(el);
+  const dates = $el.data("dates").map((date) => moment(date));
+  const analyzed = $el.data("analyzed");
+  const relevant = $el.data("relevant");
+
+  var config = {
+    type: 'line',
+    data: {
+      labels: dates,
+      datasets: [{
+        label: 'Publicações Analisadas',
+        backgroundColor: "gray",
+        borderColor: "darkgray",
+        fill: false,
+        data: analyzed,
+      }, {
+        label: 'Publicações Relevantes',
+        backgroundColor: 'lightgreen',
+        borderColor: "green",
+        fill: false,
+        data: relevant,
+      }]
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          type: 'time',
+          time: {
+            unit: 'day',
+            displayFormats: {
+              day: 'DD/MM',
+            },
+            tooltipFormat: 'll HH:mm'
+          },
+          scaleLabel: {
+            display: true,
+            labelString: 'Data de publicação'
+          }
+        }],
+        yAxes: [{
+          type: 'linear',
+          scaleLabel: {
+            display: true,
+            labelString: '# de publicações'
+          },
+          ticks: {
+            min: 0
+          }
+        }]
+      },
+      animation: { duration: 0 },
+      hover: { animationDuration: 0 },
+      responsiveAnimationDuration: 0
+    }
+  };
+
+  var ctx = el.getContext('2d');
+  new Chart(ctx, config);
+}
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
