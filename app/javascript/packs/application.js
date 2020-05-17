@@ -36,14 +36,12 @@ function initTwitter() {
   }(document, "script", "twitter-wjs"));
 }
 
-$(document).ready(function() {
+document.addEventListener("turbolinks:load", function(event) {
   $(".navbar-burger").click(function() {
     $(".navbar-burger").toggleClass("is-active");
     $(".navbar-menu").toggleClass("is-active");
   });
-});
 
-document.addEventListener("turbolinks:load", function(event) {
   if (!window.twttr) {
     initTwitter();
   } else {
