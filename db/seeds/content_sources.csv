@@ -31,6 +31,7 @@ br-ses-ba,Secretaria de Estado da Saúde da Bahia,state,state_health_agency,Nord
 br-ses-ce,Secretaria de Estado da Saúde do Ceará,state,state_health_agency,Nordeste,CE,saudeceara,https://www.saude.ce.gov.br/,
 br-ses-go,Secretaria de Estado da Saúde de Goiás,state,state_health_agency,Centro-Oeste,GO,saudegoias,https://www.saude.go.gov.br/,
 br-ses-pa,Secretaria de Estado da Saúde do Pará,state,state_health_agency,Norte,PA,sespapara,http://www.saude.pa.gov.br/,
+br-ses-pe,Secretaria de Estado da Saúde de Pernambuco,state,state_health_agency,Nordeste,PE,SaudePE,http://portal.saude.pe.gov.br/,
 br-ses-pr,Secretaria de Estado da Saúde do Paraná,state,state_health_agency,Sul,PR,saudepr,http://www.saude.pr.gov.br/,
 br-ses-pi,Secretaria de Estado da Saúde do Piauí,state,state_health_agency,Nordeste,PI,saudegovpi,http://www.saude.pi.gov.br/,
 br-ses-rn,Secretaria de Estado da Saúde do Rio Grande do Norte,state,state_health_agency,Nordeste,RN,sesaprn,http://www.saude.rn.gov.br/,
