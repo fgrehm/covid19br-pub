@@ -7,7 +7,7 @@ section.hero.is-small.is-light
           h3.title.is-5 Publicações analisadas:
           h4.title.is-4= @report[:total_analyzed]
         .column.is-4.has-text-centered
-          h3.title.is-5 Publicações relevantes:
+          h3.title.is-5 Publicações sobre COVID19:
           h4.title.is-4= @report[:total_relevant]
 br
 
@@ -15,7 +15,7 @@ canvas[id="statsChart" width="400" height="290" data=@report]
 br
 
 p.has-text-centered.is-size-7
-  em A COVID-19 foi declarada uma pandemia em 2020, portanto serão analisados apenas publicações a partir de 01/01/2020
+  em A COVID-19 foi declarada uma pandemia em 2020, portanto são analisadas apenas publicações a partir de 01/01/2020. Vale ressaltar também que ainda não foi possível analisar todas as publicações de todas as fontes desde o início do ano. Em breve será disponibilizado um gráfico para cada fonte para que as estatísticas fiquem mais claras.
 
 javascript:
   initStatsChart(document.getElementById("statsChart"));

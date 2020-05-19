@@ -85,7 +85,7 @@ window.initStatsChart = (el) => {
         fill: false,
         data: analyzed,
       }, {
-        label: 'Publicações Relevantes',
+        label: 'Publicações Sobre COVID19',
         backgroundColor: 'lightgreen',
         borderColor: "green",
         fill: false,
