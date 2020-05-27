@@ -14,10 +14,11 @@ Brasil.
 _Alto nível, mais informações podem ser disponibilizadas caso haja interesse_
 
 O processo de _scraping_ (ou raspagem) é feito por uma série de agentes
-configurados numa instância de um [fork]() do [Huginn]() (a configuração dos
-agentes pode ser encontrada [aqui]()). [Cada fonte monitorada]() possui um
-cenário do Huginn composto por diversos agentes que trabalham numa parte do
-processo de scraping:
+configurados numa instância de um [fork](https://github.com/fgrehm/covid19br-pub-agents)
+do [Huginn](https://github.com/huginn/huginn) (a configuração dos agentes pode
+ser encontrada [aqui](https://github.com/fgrehm/covid19br-pub-scenarios)). Cada
+fonte monitorada possui um cenário do Huginn composto por diversos agentes que
+trabalham numa parte do processo de scraping:
 
 ![hugin-source](docs/huginn-source.png)
 
