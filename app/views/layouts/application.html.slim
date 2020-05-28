@@ -33,6 +33,13 @@ html
             span aria-hidden="true"
         #menu.navbar-menu
           .navbar-end
+            - if controller_name != "contents"
+              form.navbar-item[method="get" action=contents_path]
+                .field.has-addons
+                  .control.is-expanded
+                    input.input[type="search" name="q"]
+                  .control
+                    input.button.is-primary[type="submit" value="Pesquisar"]
             = link_to "Publicações por estado", state_selection_path, class: "navbar-item"
             = link_to "Estatísticas", stats_path, class: "navbar-item"
             = link_to "Fontes", content_sources_path, class: "navbar-item"
