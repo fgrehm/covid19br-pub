@@ -6,16 +6,33 @@ RSpec.describe Ingestion::Actions::CheckForRelevancy do
   [
     "coronavirus", "coronavírus",
     "isolamento social", "distanciamento social",
+    "fiqueemcasa", "ficaemcasa",
+    "reabertura de serviços não essenciais", "reabertura gradual de serviços não essenciais",
+    "reabertura de serviços considerados não essenciais", "reabertura gradual de serviços considerados não essenciais",
+    "reabertura de serviços essenciais", "reabertura gradual de serviços essenciais",
+    "reabertura de serviços considerados essenciais", "reabertura gradual de serviços considerados essenciais",
+    "abertura de serviços não essenciais", "abertura gradual de serviços não essenciais",
+    "abertura de serviços considerados não essenciais", "abertura gradual de serviços considerados não essenciais",
+    "abertura de serviços essenciais", "abertura gradual de serviços essenciais",
+    "abertura de serviços considerados essenciais", "abertura gradual de serviços considerados essenciais",
+    "fechamento de serviços não essenciais",
+    "fechamento de serviços considerados não essenciais",
+    "fechamento de serviços essenciais",
+    "fechamento de serviços considerados essenciais",
+    "cloroquina", "hidroxicloroquina",
+    "hospital de campanha", "hospitais de campanha",
     "quarentena",
     "covid",
     "pandemia",
-    "fiqueemcasa", "ficaemcasa",
     "lockdown",
+    "respiradores",
   ].each do |relevant_text|
-    FIELDS.each do |field|
-      it "marks '#{field}' as relevant when it has '#{relevant_text}' in it" do
+    it "marks as relevant when it has '#{relevant_text}' in it" do
+      FIELDS.each do |field|
         ensure_relevant(field, "foo bar #{relevant_text} whatever")
+        ensure_relevant(field, "foo bar #{relevant_text} whatever".upcase)
         ensure_relevant(field, "bar#{relevant_text}whatever")
+        ensure_relevant(field, "bar#{relevant_text}whatever".upcase)
       end
     end
   end
@@ -23,14 +40,23 @@ RSpec.describe Ingestion::Actions::CheckForRelevancy do
   [
     "corinavirus", "coronavíruz",
     "izolamento social", "dixtanciamento social",
+    "fikeemcasa", "fikaemcasa",
     "quarentenum",
     "covad",
     "pandemiia",
-    "fikeemcasa", "fikaemcasa",
+    "fechamento",
+    "abertura",
+    "reabertura",
+    "isolamento",
+    "social",
+    "distanciamento",
+    "essencial",
+    "essenciais",
+    "emcasa",
     "lockduwn",
   ].each do |text_not_relevant|
-    FIELDS.each do |field|
-      it "marks '#{field}' as not relevant when it has '#{text_not_relevant}' in it" do
+    it "marks as not relevant when it has '#{text_not_relevant}' in it" do
+      FIELDS.each do |field|
         ensure_not_relevant(field, "foo bar #{text_not_relevant} whatever")
         ensure_not_relevant(field, "bar#{text_not_relevant}whatever")
       end
