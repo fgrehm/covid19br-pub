@@ -15,6 +15,13 @@ module Ingestion
         "cloroquina",
         "hospita(l|is) de campanha",
         "(fechamento|(re|)abertura)( gradual|) de serviços( considerados|)( não|) essenciais",
+        "sputnik",
+        "coronavac",
+        "sinovac",
+        "astrazeneca",
+        "covaxin",
+        "sars-cov-2",
+        "uso emergencial d(a|e) (uma |)vacina",
       ]
       REGEX = /#{KEYWORDS.join("|")}/i
 
