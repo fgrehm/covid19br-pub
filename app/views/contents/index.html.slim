@@ -1,4 +1,3 @@
-- # TODO: Visualizacao em lista / tabela
 - if params[:state_slug].present?
   - content_for :title, params[:state_slug].titleize
 - elsif @content_source
@@ -7,9 +6,14 @@
   - content_for :title, "Todas as Publicações"
 
 - unless request.xhr?
-  - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug]) : nil
-  - url ||= params[:source_guid].present? ? contents_by_source_path(params[:source_guid]) : nil
-  - url ||= "/publicacoes"
+  - if params[:display] == :list
+    - url = params[:state_slug].present? ? search_by_state_path(params[:state_slug]) : nil
+    - url ||= params[:source_guid].present? ? search_by_source_path(params[:source_guid]) : nil
+    - url ||= "/lista"
+  - else
+    - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug]) : nil
+    - url ||= params[:source_guid].present? ? contents_by_source_path(params[:source_guid]) : nil
+    - url ||= "/publicacoes"
   form[method="get" action=url]
     .field.has-addons
       .control.is-expanded
@@ -27,26 +31,43 @@
 
 - if @contents.any?
   div
-    .contents
-      .columns.is-multiline
-        .column
-          .columns.is-multiline
-            - @contents.each do |content|
-              .column.is-one-quarter-fullhd.is-one-third-desktop.is-half-tablet
-                = render "cards/#{content.content_type}", content: content, data: { uuid: content.uuid }
+    - if params[:display] == :list
+      .contents
+        = render collection: @contents, partial: "content_line", as: :content
 
-    - if params[:page].to_i < 5
-      div.see-more
-        hr
-        - if !@contents.last_page?
-          - # HACK: This is terrible, but was in a rush
-          - next_page = params.fetch(:page, 1).to_i + 1
-          - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug], page: next_page) : nil
-          - url ||= params[:source_guid].present? ? contents_by_source_path(params[:source_guid], page: next_page) : nil
-          - url ||= "/publicacoes?page=#{next_page}"
-          - url << "&q=#{params[:q]}" if params[:q].present?
-          button#see-more-contents-btn.button.is-fullwidth.is-primary[data-url=url]
-            | VEJA MAIS
+      - if params[:page].to_i < 5
+        div.see-more
+          hr
+          - if !@contents.last_page?
+            - # HACK: This is terrible, but was in a rush
+            - next_page = params.fetch(:page, 1).to_i + 1
+            - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug], page: next_page) : nil
+            - url ||= params[:source_guid].present? ? contents_by_source_path(params[:source_guid], page: next_page) : nil
+            - url ||= "/lista?page=#{next_page}"
+            - url << "&q=#{params[:q]}" if params[:q].present?
+            button#see-more-contents-btn.button.is-fullwidth.is-primary[data-url=url]
+              | VEJA MAIS
+    - else
+      .contents
+        .columns.is-multiline
+          .column
+            .columns.is-multiline
+              - @contents.each do |content|
+                .column.is-one-quarter-fullhd.is-one-third-desktop.is-half-tablet
+                  = render "cards/#{content.content_type}", content: content, data: { uuid: content.uuid }
+
+      - if params[:page].to_i < 5
+        div.see-more
+          hr
+          - if !@contents.last_page?
+            - # HACK: This is terrible, but was in a rush
+            - next_page = params.fetch(:page, 1).to_i + 1
+            - url = params[:state_slug].present? ? contents_by_state_path(params[:state_slug], page: next_page) : nil
+            - url ||= params[:source_guid].present? ? contents_by_source_path(params[:source_guid], page: next_page) : nil
+            - url ||= "/publicacoes?page=#{next_page}"
+            - url << "&q=#{params[:q]}" if params[:q].present?
+            button#see-more-contents-btn.button.is-fullwidth.is-primary[data-url=url]
+              | VEJA MAIS
 - else
   .notification.is-warning
     p Nenhuma publicação encontrada

@@ -17,8 +17,11 @@ Rails.application.routes.draw do
   get "/publicacoes", to: "contents#index", as: :contents
   get "/publicacoes/selecionar-estado", to: "contents#state_selection", as: :state_selection
   get "/publicacoes/:state_slug", to: "contents#index", as: :contents_by_state
+  get "/lista", to: "contents#index", as: :search, defaults: { display: :list }
+  get "/lista/:state_slug", to: "contents#index", as: :search_by_state, defaults: { display: :list }
   get "/fontes", to: "content_sources#index", as: :content_sources
   get "/fontes/:source_guid/publicacoes", to: "contents#index", as: :contents_by_source
+  get "/fontes/:source_guid/lista", to: "contents#index", as: :search_contents_by_source
   get "/estatisticas", to: "stats#index", as: :stats
   get "/sobre", to: "static#about", as: :about_page
 

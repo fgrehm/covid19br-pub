@@ -1,0 +1,29 @@
+- # HACK
+- is_article = content.content_type == "article"
+article.media
+  figure.media-left
+    p.image.is-64x64
+      - if content.image_url?
+          = link_to content.url, target: "_blank" do
+            - if content.cloudinary_image_id?
+              = cl_image_tag(content.cloudinary_image_id, format: "jpg", transformation: "main_thumb")
+            - elsif content.image_url?
+              = image_tag content.image_url
+
+  .media-content
+    .content
+      - if is_article
+        i.fa.fa-newspaper'
+        = link_to content.url, target: "_blank" do
+          strong=' content.title
+        br
+        small
+          strong= content.content_source.name
+      - else
+        i.fab.fa-twitter'
+        = link_to content.url, target: "_blank" do
+          strong=' content.content_source.name
+        a[href="https://twitter.com/#{content.content_source.twitter}" target="blank"]
+          small= "@#{content.content_source.twitter}"
+      br
+      = content.display_text.gsub("\n", "<br>").html_safe
