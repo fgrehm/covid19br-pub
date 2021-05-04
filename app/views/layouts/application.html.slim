@@ -33,20 +33,21 @@ html
             span aria-hidden="true"
         #menu.navbar-menu
           .navbar-end
-            - if controller_name != "contents"
-              form.navbar-item[method="get" action=contents_path]
-                .field.has-addons
-                  .control.is-expanded
-                    input.input[type="search" name="q"]
-                  .control
-                    input.button.is-primary[type="submit" value="Pesquisar"]
             = link_to "Publicações por estado", state_selection_path, class: "navbar-item"
             = link_to "Estatísticas", stats_path, class: "navbar-item"
-            = link_to "Fontes", content_sources_path, class: "navbar-item"
             = link_to "Sobre o projeto", about_page_path, class: "navbar-item"
+            a.navbar-item[href="https://apoia.se/coronavirusbra" target="_blank"]
+              | Apoie o @coronavirusbra1
             a.navbar-item[href="https://github.com/fgrehm/covid19br-pub" target="_blank"]
               .icon
                 i.fab.fa-github.fa-lg
+
+    - if !@hide_warning
+      .notification.is-warning.has-text-centered style="margin-bottom: 0"
+        .container
+          ' Olá! Este projeto foi encerrado em 27/04/2021.
+          => link_to "Clique aqui", about_page_url
+          | e saiba mais.
 
     - if content_for?(:page_header_full)
       = content_for(:page_header_full)
@@ -63,7 +64,7 @@ html
     footer.footer
       .container
         p.has-text-grey-light.has-text-centered
-          ' O Monitor da COVID-19 no Brasil é mantido por
+          ' O Monitor da COVID-19 no Brasil foi mantido por
           a href="https://twitter.com/fgrehm" target="_blank"
             | Fábio Rehm
           | .
